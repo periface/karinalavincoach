@@ -242,7 +242,7 @@ section.karina-intro {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-image: -o-linear-gradient(
+  background: -o-linear-gradient(
       74deg,
       rgba(233, 233, 233, 1) 0%,
       rgba(0, 0, 0, 1) 0%,
@@ -250,7 +250,7 @@ section.karina-intro {
       rgba(0, 0, 0, 0.8) 88%
     ),
     url(/assets/img/karina-fondo.png);
-  background-image: linear-gradient(
+  background: linear-gradient(
       16deg,
       rgba(233, 233, 233, 1) 0%,
       rgba(0, 0, 0, 1) 0%,
