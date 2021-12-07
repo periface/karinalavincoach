@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: 'Fjalla One', sans-serif !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right
+}
+
+.title-red {
+  text-align: center;
+  font-size: 3em;
+  color: #D51218;
+}
+
+.enfasis {
+  color: #D51218;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 3em;
+
+  span {
+    color: white !important;
+    text-transform: uppercase;
+  }
+}

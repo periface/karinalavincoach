@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dragonteam-8ade4": {
+      "hosting": {
+        "karinalavincoach": [
+          "dragonteam-8ade4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dragonteam-8ade4"
+  }
+}

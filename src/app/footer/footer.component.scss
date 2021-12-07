@@ -1,0 +1,47 @@
+footer {
+  * {
+    color: white;
+  }
+
+  h2 {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 2em;
+    font-weight: 700;
+  }
+
+  background-color: black;
+  border-top: 0.5em solid #8C2F2F;
+  width: 100%;
+  min-height: 130px;
+  padding-top: 40px;
+
+  .social {
+    margin-top: 10px;
+
+    .fb {
+      margin: 10px;
+
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    .ig {
+      margin: 10px;
+
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  h2 {
+    font-size: 0.8em !important;
+    text-align: center;
+  }
+}

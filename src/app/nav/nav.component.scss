@@ -1,0 +1,57 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar {
+  color: white;
+  border-bottom: 1px solid #D51218;
+
+  span {
+    padding-left: 10%;
+  }
+}
+
+.lgtb {
+  //background-image: url(/assets/img/pride.gif);
+  width: 3%;
+  height: 40px;
+  background-position: center;
+  background-size: cover;
+  margin-left: 15px;
+  padding-left: 0% !important;
+
+  img {
+    width: 100%;
+  }
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 9999999;
+  background: black;
+  font-size: 2em;
+  font-family: 'Fjalla One', sans-serif !important;
+}
+
+.mat-nav-list {
+  font-family: 'Fjalla One', sans-serif !important;
+}
+
+@media only screen and (max-width: 800px) {
+  span {
+    padding-left: 0% !important;
+  }
+
+  .lgtb {
+    width: 14%;
+  }
+}
