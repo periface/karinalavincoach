@@ -13,8 +13,11 @@ const indexHtml = existsSync(join(distFolder, 'index.original.html'))
   : 'index.html';
 const template = readFileSync(join(distFolder, indexHtml)).toString();
 const window = domino.createWindow(template.toString());
-window['requestAnimationFrame'] = function (callback: FrameRequestCallback) {
+global['requestAnimationFrame'] = function (callback: FrameRequestCallback) {
   return 0;
+};
+global['cancelAnimationFrame'] = function(id) {
+  clearTimeout(id);
 };
 global['window'] = window;
 global['document'] = window.document;

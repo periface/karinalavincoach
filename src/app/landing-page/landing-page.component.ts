@@ -48,58 +48,66 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     }, 8000);
   }
   animarTitulo() {
-    const textWrapper = this.document.querySelector('.an-1') || ('' as any);
-    if (!textWrapper) return;
-    textWrapper.innerHTML = textWrapper.textContent?.replace(
-      /\S/g,
-      "<span class='letter'>$&</span>"
-    );
-    anime.timeline({ loop: false }).add({
-      targets: '.an-1 .letter',
-      scale: [4, 1],
-      opacity: [0, 1],
-      translateZ: 0,
-      easing: 'easeOutExpo',
-      duration: 3000,
-      delay: (el: any, i: number) => 70 * i,
-    });
-    anime.timeline({ loop: false }).add({
-      targets: '.fadeIn',
-      opacity: [0, 1],
-      duration: 2000,
-      easing: 'easeOutExpo',
-      delay: 3500,
-      update: (anim: any) => {},
-      complete: () => {
-        //this.startLightning();
-      },
-    });
-  }
-  animarHashtags() {
-    anime
-      .timeline({ loop: true })
-      .add({
-        targets: '.firstanim',
+    try {
+      const textWrapper = this.document.querySelector('.an-1') || ('' as any);
+      if (!textWrapper) return;
+      textWrapper.innerHTML = textWrapper.textContent?.replace(
+        /\S/g,
+        "<span class='letter'>$&</span>"
+      );
+      anime.timeline({ loop: false }).add({
+        targets: '.an-1 .letter',
+        scale: [4, 1],
         opacity: [0, 1],
-        easing: 'easeInOutExpo',
-        duration: 4000,
-        delay: (el: any, i: number) => 70 * (i * 20),
-        direction: 'alternate',
-      })
-      .add({
-        targets: '.firstanim',
-        opacity: [1, 0],
-        easing: 'easeInOutExpo',
-        duration: 4500,
-        direction: 'alternate',
-        delay: (el: any, i: number) => {
-          return 1000;
-        },
-        complete: (anim: any) => {
+        translateZ: 0,
+        easing: 'easeOutExpo',
+        duration: 3000,
+        delay: (el: any, i: number) => 70 * i,
+      });
+      anime.timeline({ loop: false }).add({
+        targets: '.fadeIn',
+        opacity: [0, 1],
+        duration: 2000,
+        easing: 'easeOutExpo',
+        delay: 3500,
+        update: (anim: any) => {},
+        complete: () => {
           //this.startLightning();
-          this.changeHashtagPosition();
         },
       });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  animarHashtags() {
+    try {
+      anime
+        .timeline({ loop: true })
+        .add({
+          targets: '.firstanim',
+          opacity: [0, 1],
+          easing: 'easeInOutExpo',
+          duration: 4000,
+          delay: (el: any, i: number) => 70 * (i * 20),
+          direction: 'alternate',
+        })
+        .add({
+          targets: '.firstanim',
+          opacity: [1, 0],
+          easing: 'easeInOutExpo',
+          duration: 4500,
+          direction: 'alternate',
+          delay: (el: any, i: number) => {
+            return 1000;
+          },
+          complete: (anim: any) => {
+            //this.startLightning();
+            this.changeHashtagPosition();
+          },
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }
   startLightning() {
     anime.timeline({ loop: false }).add({

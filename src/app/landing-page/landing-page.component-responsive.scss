@@ -52,9 +52,6 @@
     .bubble-3 {
       display: none;
     }
-
-
-
   }
 
   .main-text {
@@ -78,10 +75,8 @@
           // display: none;
 
           img {
-
             width: 15%;
             margin-top: 10px;
-
           }
         }
 
@@ -96,7 +91,6 @@
         }
       }
     }
-
   }
 
   .colored-section {
@@ -113,10 +107,27 @@
     background-color: rgba(0, 0, 0, 0.5) !important;
   }
 
-
-
   section.karina-intro {
-    background-image: linear-gradient(16deg, #e9e9e9 0%, #0000007a 0%, #0000008c 55%, rgba(0, 0, 0, 0.8) 88%), url(/assets/img/karinader.jpg);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-image: -o-linear-gradient(
+        74deg,
+        rgba(233, 233, 233, 1) 0%,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 55%,
+        rgba(0, 0, 0, 0.8) 88%
+      ),
+      url(/assets/img/karina-fondo.png);
+    background-image: linear-gradient(
+        16deg,
+        rgba(233, 233, 233, 1) 0%,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 55%,
+        rgba(0, 0, 0, 0.8) 88%
+      ),
+      url(/assets/img/karina-fondo.png);
+    //background: black;
     background-position: center;
     background-size: cover;
 
@@ -159,7 +170,6 @@
       align-items: center;
     }
   }
-
 
   section.ifbb-info {
     max-width: 100%;
@@ -228,7 +238,6 @@
     }
 
     .button {
-
       margin-top: 15px;
       width: 80%;
       font-size: 1em;
@@ -247,5 +256,4 @@
       }
     }
   }
-
 }
