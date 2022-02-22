@@ -8,9 +8,8 @@
   >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">BIENVENIDO(A)</a>
-      <!-- <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a> -->
+      <a mat-list-item routerLink="/">BIENVENIDO(A)</a>
+      <a mat-list-item routerLink="/iniciar-sesion">Iniciar sesión</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -28,6 +27,15 @@
       <!-- <span class="lgtb">
         <img src="/assets/img/pride.gif" alt="" />
       </span> -->
+      <span class="example-spacer"></span>
+      <button fxHide.xs
+        mat-button
+        routerLink="/iniciar-sesion"
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        Iniciar sesión
+      </button>
     </mat-toolbar>
 
     <router-outlet></router-outlet>

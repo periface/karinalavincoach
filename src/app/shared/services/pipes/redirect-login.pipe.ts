@@ -9,5 +9,5 @@ function getResolvedUrl(route: ActivatedRouteSnapshot): string {
 
 export const redirectUnauthorizedToLogin = (data: ActivatedRouteSnapshot) => {
   let returnUrl = getResolvedUrl(data);
-  return redirectUnauthorizedTo(['auth', returnUrl]);
+  return redirectUnauthorizedTo(['iniciar-sesion', returnUrl]);
 };

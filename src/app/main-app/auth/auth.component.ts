@@ -158,24 +158,12 @@ export class AuthComponent extends BaseComponent implements OnInit {
           .doc(userCredentials.user.uid)
           .get()
           .toPromise();
-        let data = userRegisterInfo.data() as any;
-        this.localStorageService.setItem(
-          LocalStorageLocations.USER_SURVEY_FINISHED,
-          data.registroFinalizado
-        );
+
         this.localStorageService.setItem(
           LocalStorageLocations.USER_ACCOUNT_INFO,
           JSON.stringify(userRegisterInfo.data())
         );
-        if (data) {
-          if (data.registroFinalizado) {
-            this.redirect();
-          } else {
-            this.router.navigateByUrl('users/mainform');
-          }
-        } else {
-          this.router.navigateByUrl('users/mainform');
-        }
+        this.router.navigateByUrl('panel-de-control');
       }
     } catch (error) {
       this.showMessage('Usuario/contraseña incorrectos');
@@ -224,7 +212,7 @@ export class AuthComponent extends BaseComponent implements OnInit {
             nombreCompleto: this.registerForm.value.nombre,
           })
         );
-        this.router.navigateByUrl('users/mainform');
+        this.router.navigateByUrl('panel-de-control');
       } else {
         this.showMessage('No se encontro al usuario');
       }
@@ -236,7 +224,7 @@ export class AuthComponent extends BaseComponent implements OnInit {
     if (this.returnUrl) {
       this.router.navigateByUrl(this.returnUrl);
     } else {
-      this.router.navigate(['users', 'dashboard']);
+      this.router.navigate(['panel-de-control']);
     }
   }
   async recover() {
@@ -309,30 +297,7 @@ export class AuthComponent extends BaseComponent implements OnInit {
             nombreCompleto: userCredentials.user?.displayName,
           })
         );
-
-        let userRegisterInfo = await this.afs
-          .collection('users')
-          .doc(userCredentials.user.uid)
-          .get()
-          .toPromise();
-        let data = userRegisterInfo.data() as any;
-        if (data) {
-          this.localStorageService.setItem(
-            LocalStorageLocations.USER_SURVEY_FINISHED,
-            data.registroFinalizado
-          );
-          this.localStorageService.setItem(
-            LocalStorageLocations.USER_ACCOUNT_INFO,
-            JSON.stringify(userRegisterInfo.data())
-          );
-          if (data.registroFinalizado) {
-            this.redirect();
-          } else {
-            this.router.navigateByUrl('users/mainform');
-          }
-        } else {
-          this.router.navigateByUrl('users/mainform');
-        }
+        this.router.navigateByUrl('panel-de-control');
       } else {
         this.showMessage('No se encontro al usuario');
       }
