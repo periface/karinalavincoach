@@ -1,0 +1,109 @@
+@import "../../../../variables.scss";
+.mat-toolbar-row{
+  height: 90px!important;
+}
+.img-topbar{
+  width: 100%;
+  max-width: 100%;
+}
+.resp-menu {
+  display: none;
+}
+.top-logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.item {
+  flex-grow: 1;
+  flex-basis: 50%;
+  align-self: center;
+  margin: 0 auto;
+  text-align: center;
+}
+.top-banner-container {
+  overflow: hidden;
+}
+.cintilla-azul {
+  content: "";
+  height: 20px;
+  width: 35%;
+  margin-left: -2%;
+  transform: skew(-56deg);
+  background-color: $azul-cinotam;
+  /* background-color: white; */
+  position: relative;
+  float: left;
+  z-index: 1;
+  border-radius: 25px;
+}
+.cintilla-naranja {
+  content: "";
+  height: 20px;
+  width: 75%;
+  transform: skew(-36deg);
+  background-color: $naranja-cinotam;
+  /* background-color: white; */
+  position: relative;
+  float: right;
+  margin-right: -15%;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 25px;
+}
+.cintilla {
+  content: "";
+  /* background-image: url(../Content/Images/cintilla2.png); */
+  height: 20px;
+  margin: 0;
+  background-color: white;
+  position: relative;
+  z-index: -9999;
+}
+.main-menu-container {
+  width: 100%;
+  max-width: 100%;
+}
+.mat-toolbar.mat-primary {
+  background: transparent;
+}
+mat-toolbar-row {
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 3%;
+    a {
+      font-size: 1.2em;
+      text-decoration: none;
+      font-weight: bolder;
+      color: $celeste-cinotam !important;
+    }
+  }
+}
+.separator-menu {
+  padding-left: 30%;
+}
+.menu-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: nowrap ;
+  align-items: center;
+
+  div {
+    margin: 10px;
+    margin-left: 2em;
+    display: inline-block; // Troll fix
+    a {
+      font-size: 1.2em;
+      text-decoration: none;
+      font-weight: bolder;
+      color: $celeste-cinotam !important;
+    }
+  }
+}

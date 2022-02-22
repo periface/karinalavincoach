@@ -1,0 +1,11 @@
+.user-menu-container {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 90%;
+  top: 20%;
+  z-index: 99999;
+}
+mat-icon {
+  font-size: 45px;
+  color: #e75204;
+}

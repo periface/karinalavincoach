@@ -1,0 +1,47 @@
+<div class="top-banner-container">
+  <div class="cintilla-azul"></div>
+  <div class="cintilla-naranja"></div>
+  <div class="cintilla"></div>
+</div>
+<div class="main-menu-container">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <div class="title">
+        <a routerLink="/"
+          ><img class="img-topbar" src="/assets/img/cinotam.png" alt=""
+        /></a>
+      </div>
+      <div class="separator-menu"></div>
+      <div class="menu-items">
+        <div *ngFor="let item of this.routes">
+          <a *ngIf="!item.icon" [routerLink]="isFunction(item.url)">
+            {{ isFunction(item.title) }}
+          </a>
+          <a *ngIf="item.icon" [routerLink]="isFunction(item.url)"
+            ><mat-icon *ngIf="item.icon">{{
+              isFunction(item.icon)
+            }}</mat-icon></a
+          >
+        </div>
+      </div>
+      <button
+        class="thebutton"
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu xPosition="before" class="resp-menu" #menu="matMenu">
+        <button
+          [routerLink]="isFunction(item.url)"
+          *ngFor="let item of this.routes"
+          mat-menu-item
+        >
+          <span> {{ isFunction(item.title) }}</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div class="separator orange"></div>

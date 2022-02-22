@@ -1,0 +1,159 @@
+<div class="main-container">
+  <div fxLayout="row" fxLayoutAlign="center" fxLayout.xs="column">
+    <div fxFlex="80" class="text-center" fxFlex.xs="100">
+      <h2>{{ topTxt }}</h2>
+      <mat-hint *ngIf="this.registerAttempt">
+        <strong>Inicia sesión </strong> ó <strong>crea una cuenta</strong> para
+        tener acceso a <br />
+        todas nuestras conferencias <br /><br />
+      </mat-hint>
+    </div>
+  </div>
+  <form
+    [formGroup]="getFormActive()"
+    (ngSubmit)="handleLoginForm()"
+    fxLayout="row wrap"
+    fxLayoutAlign="center"
+    fxLayout.xs="column"
+  >
+    <div
+      *ngIf="this.formActive == 'register'"
+      fxFlex="80"
+      class="text-center"
+      fxFlex.xs="100"
+    >
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre completo</mat-label>
+        <input formControlName="nombre" matInput />
+        <mat-error *ngFor="let validation of validationMessages.username">
+          <span
+            class="error-message"
+            *ngIf="
+              currentActiveForm?.get('nombre')?.hasError(validation.type) &&
+              (currentActiveForm?.get('nombre')?.dirty ||
+                currentActiveForm?.get('nombre')?.touched)
+            "
+            >{{ validation.message }}</span
+          >
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxFlex="80" class="text-center" fxFlex.xs="100">
+      <mat-form-field appearance="fill">
+        <mat-label>Correo electrónico</mat-label>
+        <input
+          formControlName="correo"
+          matInput
+          type="email"
+          pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]+$"
+        />
+        <mat-error *ngFor="let validation of validationMessages.email">
+          <span
+            class="error-message"
+            *ngIf="
+              currentActiveForm?.get('correo')?.hasError(validation.type) &&
+              (currentActiveForm?.get('correo')?.dirty ||
+                currentActiveForm?.get('correo')?.touched)
+            "
+            >{{ validation.message }}</span
+          >
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div
+      fxFlex="80"
+      *ngIf="this.formActive == 'register' || this.formActive != 'recover'"
+      class="text-center"
+      fxFlex.xs="100"
+    >
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="contrasena" matInput type="password" />
+        <mat-error *ngFor="let validation of validationMessages.contrasena">
+          <span
+            class="error-message"
+            *ngIf="
+              currentActiveForm?.get('contrasena')?.hasError(validation.type) &&
+              (currentActiveForm?.get('contrasena')?.dirty ||
+                currentActiveForm?.get('contrasena')?.touched)
+            "
+            >{{ validation.message }}</span
+          >
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div
+      *ngIf="this.formActive == 'register'"
+      fxFlex="80"
+      class="text-center"
+      fxFlex.xs="100"
+    >
+      <mat-form-field appearance="fill">
+        <mat-label>Confirmar contraseña</mat-label>
+        <input formControlName="confirmarContrasena" matInput type="password" />
+        <mat-error
+          *ngFor="let validation of validationMessages.confirmarContrasena"
+        >
+          <span
+            class="error-message"
+            *ngIf="
+              currentActiveForm
+                ?.get('confirmarContrasena')
+                ?.hasError(validation.type) &&
+              (currentActiveForm?.get('confirmarContrasena')?.dirty ||
+                currentActiveForm?.get('confirmarContrasena')?.touched)
+            "
+            >{{ validation.message }}</span
+          >
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxFlex="80" class="text-center" fxFlex.xs="100">
+      <button
+        [disabled]="!this.currentActiveForm?.valid || this.loading"
+        type="submit"
+        mat-raised-button
+        color="accent"
+      >
+        {{ this.btnTxt }}
+      </button>
+      <p>
+        {{ noAccountMsg }}
+        <a
+          href="javascript:void(0)"
+          (click)="
+            toggleForm(this.formActive == 'login' ? 'register' : 'login')
+          "
+          >{{ callToAction }}</a
+        >
+      </p>
+      <p>
+        <a href="javascript:void(0)" (click)="toggleForm('recover')"
+          >Olvide mi contraseña</a
+        >
+      </p>
+      <p>
+        <a routerLink="/politica-privacidad">Política de Privacidad</a>
+      </p>
+    </div>
+    <div fxFlex="80" class="text-center" fxFlex.xs="100">
+      <h4>Tambien puedes entrar con:</h4>
+      <button
+        type="button"
+        (click)="useExternal('facebook')"
+        mat-raised-button
+        color="primary"
+      >
+        Facebook
+      </button>
+      <button
+        type="button"
+        (click)="useExternal('google')"
+        mat-raised-button
+        color="accent"
+      >
+        Google
+      </button>
+    </div>
+  </form>
+</div>

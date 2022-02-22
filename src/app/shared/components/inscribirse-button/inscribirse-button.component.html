@@ -1,0 +1,25 @@
+<button *ngIf="!isFinished"
+  (click)="this.disabled ? showMessage() : subscribeToCourse()"
+  mat-raised-button
+  color="accent"
+  [disabled]="loading || isFinished"
+  class="inscribirse"
+>
+  {{ buttonTxt }}</button
+><br />
+<button *ngIf="isFinished"
+  (click)="this.disabled ? showMessage() : subscribeToCourse()"
+  mat-raised-button
+  color="accent"
+  [disabled]="isFinished"
+  class="inscribirse"
+>
+  Conferencia no disponible</button
+><br />
+<a
+  *ngIf="this.disabled && this.showMyCourses && this.userId"
+  mat-button
+  routerLink="/users/dashboard/miscursos"
+  >Mis Conferencias</a
+>
+<br />

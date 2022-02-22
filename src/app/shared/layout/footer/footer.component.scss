@@ -1,0 +1,30 @@
+@import "../../../../variables";
+.footer-container {
+  background: $gris-cinotam;
+  padding-top: 20px;
+}
+.img-uat {
+  width: 70%;
+}
+.prosoft {
+  width: 70%;
+}
+.left-logo-container {
+  position: relative;
+}
+h3 {
+  margin-top: 0;
+}
+@media screen and (min-width: 0px) and (max-width: 599.98px) {
+  .uat {
+    margin-top: 15px;
+    order: 3;
+  }
+  .img-uat {
+    width: 35%;
+  }
+  .prosoft {
+    margin-top: 10px;
+    width: 35%;
+  }
+}

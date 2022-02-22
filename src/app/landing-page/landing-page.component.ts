@@ -7,6 +7,7 @@ import {
   PLATFORM_ID,
 } from '@angular/core';
 import anime from 'animejs';
+import { BaseComponent } from '../shared/components/base-component.component';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -15,10 +16,14 @@ import anime from 'animejs';
     './landing-page.component-responsive.scss',
   ],
 })
-export class LandingPageComponent implements OnInit, AfterViewInit {
+export class LandingPageComponent
+  extends BaseComponent
+  implements OnInit, AfterViewInit
+{
   mainDiv: any;
   words: string[] = [];
   constructor(@Inject(DOCUMENT) private document: Document) {
+    super();
     this.words = [
       '#CONSTANCIA',
       '#TECNICA',

@@ -1,0 +1,40 @@
+<div class="separator orange"></div>
+<div class="footer-container">
+  <div
+    fxLayout="row"
+    gdAlignRows="center stretch"
+    fxLayoutAlign="center stretch"
+    fxLayout.xs="column"
+  >
+    <div fxFlex="25" fxFlex.xs="100">
+      <div  fxFlexAlign="center" class="left-logo-container text-center">
+        <img
+          class="img-uat"
+          [defaultImage]="
+            'https://placeholder.pics/svg/450x300/DEDEDE/555555/Cargando%20imagen...'
+          "
+          [lazyLoad]="'/assets/img/uat.png'"
+          alt=""
+        />
+        <!-- <img class="img-posgrado" src="/assets/img/posgrado.png" alt="" /> -->
+      </div>
+    </div>
+    <div fxFlex="25"  fxFlexAlign="center" fxFlex.xs="100" class="uat text-center">
+      <h3>Universidad Autónoma de Tamaulipas</h3>
+      <small> © Todos los derechos reservados 2019 </small>
+      <p>
+        <a routerLink="politica-privacidad">Política de Privacidad</a>
+      </p>
+    </div>
+    <div fxFlex="25"  fxFlexAlign="center" fxFlex.xs="100" class="text-center">
+      <img
+        class="prosoft"
+        [defaultImage]="
+          'https://placeholder.pics/svg/450x300/DEDEDE/555555/Cargando%20imagen...'
+        "
+        [lazyLoad]="'/assets/img/prosoft.png'"
+        alt=""
+      />
+    </div>
+  </div>
+</div>

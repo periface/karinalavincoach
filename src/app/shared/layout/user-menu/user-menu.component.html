@@ -1,0 +1,13 @@
+<div *ngIf="userId !== ''" class="user-menu-container">
+  <div class="menu-items">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button routerLink="/users/dashboard" mat-menu-item>
+        Panel de control
+      </button>
+      <button (click)="logOut()" mat-menu-item>Cerrar Sesión</button>
+    </mat-menu>
+  </div>
+</div>

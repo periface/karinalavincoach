@@ -9,7 +9,7 @@ body {
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body {
   margin: 0;
-  font-family: 'Fjalla One', sans-serif !important;
+  font-family: "Fjalla One", sans-serif !important;
 }
 
 .text-center {
@@ -29,17 +29,17 @@ body {
 }
 
 .float-right {
-  float: right
+  float: right;
 }
 
 .title-red {
   text-align: center;
   font-size: 3em;
-  color: #D51218;
+  color: #d51218;
 }
 
 .enfasis {
-  color: #D51218;
+  color: #d51218;
   font-weight: bolder;
   text-align: center;
   font-size: 3em;
@@ -48,4 +48,36 @@ body {
     color: white !important;
     text-transform: uppercase;
   }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.main-container {
+  min-height: 100vh;
+}
+.main-container {
+  min-height: 80vh;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.main {
+  min-height: 80vh;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.main-small {
+  width: 70%;
+}
+.main-smaller {
+  width: 45%;
 }
