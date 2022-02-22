@@ -18,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'panel-de-control',
-    component: MainAppComponent,
+    loadChildren: () =>
+      import('./main-app/main-app.module').then((m) => m.MainAppModule),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },

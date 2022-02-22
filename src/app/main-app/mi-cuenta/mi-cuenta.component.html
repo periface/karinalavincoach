@@ -1,0 +1,74 @@
+<div
+  fxLayout="row wrap"
+  class="main"
+  fxLayoutAlign="center"
+  fxLayout.xs="column"
+>
+  <div fxFlex="100" fxFlex.xs="100">
+    <mat-stepper
+      [orientation]="(stepperOrientation | async)!"
+      [linear]="false"
+      #stepper
+    >
+      <mat-step
+        *ngIf="datosPersonalesForm"
+        [stepControl]="datosPersonalesForm"
+        state="phone"
+      >
+        <form [formGroup]="datosPersonalesForm">
+          <ng-template matStepLabel>Datos Personales</ng-template>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input
+              formControlName="nombreCompleto"
+              matInput
+              placeholder="Jose Torres"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input
+              formControlName="email"
+              matInput
+              placeholder="mail@serv.com"
+              required
+              [disabled]="true"
+            />
+          </mat-form-field>
+
+          <div class="form-item">
+            <label id="example-radio-group-label">Sexo:</label>
+            <mat-radio-group
+              required
+              formControlName="sexo"
+              class="example-radio-group"
+            >
+              <mat-radio-button class="example-radio-button" value="1">
+                Masculino
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" value="2">
+                Femenino
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" value="3">
+                Prefiero no decirlo
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <button
+              mat-raised-button
+              color="accent"
+              matStepperNext
+              [disabled]="!datosPersonalesForm.valid"
+              (click)="saveFirst()"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div>

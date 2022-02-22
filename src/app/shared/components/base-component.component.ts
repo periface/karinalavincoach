@@ -18,7 +18,15 @@ export class BaseComponent {
     ADMIN: 'ADMINISTRADOR',
     CONFERENCISTA: 'CONFERENCISTA',
   };
-
+  isFunction(functionToCheck: any) {
+    let isAFunction =
+      functionToCheck &&
+      {}.toString.call(functionToCheck) === '[object Function]';
+    if (isAFunction) {
+      return functionToCheck();
+    }
+    return functionToCheck;
+  }
   protected localStorageService: LocalstorageService;
   public config = {};
   http: HttpClient;

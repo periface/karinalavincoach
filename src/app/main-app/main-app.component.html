@@ -1,15 +1,55 @@
-<div class="main">
-  <div fxLayout="row" fxLayoutAlign="center">
-    <div class="text-center" fxFlex="50">
-      <h1>Bienvenido(a)</h1>
-      <p>
-        Gracias por tu confianza, por el momento no hay mucho que ver aquí
-        <br />
-        pero no te preocupes muy pronto obtendrás beneficios por registrarte :)
-      </p>
-      <div class="logo">
-        <img style="width: 20%" src="/assets/img/klcrojo.svg" alt="" />
-      </div>
+<div class="main-container">
+  <button mat-icon-button (click)="this.opened = !this.opened">
+    <mat-icon>{{ this.opened ? "close" : "menu" }}</mat-icon>
+  </button>
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer
+      class="example-sidenav"
+      #sidenav
+      mode="side"
+      [(opened)]="opened"
+    >
+      <mat-action-list>
+        <button mat-list-item>
+          <span>¡Hola {{ userProfile.nombreCompleto }}!</span>
+        </button>
+        <button
+          mat-list-item
+          (click)="
+            this.showMenuBtn ? (this.opened = false) : (this.opened = true)
+          "
+          routerLink="micuenta"
+        >
+          Mi Cuenta
+        </button>
+        <button
+          routerLink="usuarios"
+          (click)="
+            this.showMenuBtn ? (this.opened = false) : (this.opened = true)
+          "
+          mat-list-item
+          *ngIf="isAdmin()"
+        >
+          Usuarios
+        </button>
+        <button
+          mat-list-item
+          (click)="
+            this.showMenuBtn ? (this.opened = false) : (this.opened = true)
+          "
+          routerLink="seguridad"
+        >
+          Seguridad
+        </button>
+        <button mat-list-item (click)="this.opened = false" (click)="logOut()">
+          Cerrar sesión
+        </button>
+      </mat-action-list>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <router-outlet></router-outlet>
     </div>
-  </div>
+  </mat-drawer-container>
 </div>

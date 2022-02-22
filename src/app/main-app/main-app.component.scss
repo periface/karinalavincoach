@@ -1,0 +1,25 @@
+.example-container {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+mat-action-list {
+  height: -webkit-fill-available;
+}
+.reportesbtn {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}

@@ -290,13 +290,27 @@ export class AuthComponent extends BaseComponent implements OnInit {
           LocalStorageLocations.USER_ID,
           userCredentials.user.uid
         );
-        this.localStorageService.setItem(
-          LocalStorageLocations.USER_ACCOUNT_INFO,
-          JSON.stringify({
-            email: userCredentials.user?.email,
-            nombreCompleto: userCredentials.user?.displayName,
-          })
-        );
+
+        let userRegisterInfo = await this.afs
+          .collection('users')
+          .doc(userCredentials.user?.uid)
+          .get()
+          .toPromise();
+        if (userRegisterInfo) {
+          this.localStorageService.setItem(
+            LocalStorageLocations.USER_ACCOUNT_INFO,
+            JSON.stringify(userRegisterInfo.data())
+          );
+        } else {
+          this.localStorageService.setItem(
+            LocalStorageLocations.USER_ACCOUNT_INFO,
+            JSON.stringify({
+              email: userCredentials.user?.email,
+              nombreCompleto: userCredentials.user?.displayName,
+            })
+          );
+        }
+
         this.router.navigateByUrl('panel-de-control');
       } else {
         this.showMessage('No se encontro al usuario');
