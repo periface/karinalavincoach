@@ -25,9 +25,17 @@ export class NavComponent extends BaseComponent implements AfterViewInit {
     );
   routes: CustomRoute[] = [
     {
+      title: 'Inicio',
+      url: '/',
+    },
+
+    {
+      title: '¿Dificultades con tu técnica?',
+      url: 'ejercicios',
+    },
+    {
       title: () => {
         let userId = this.localStorageService.getUserId;
-        console.log(userId);
         if (userId) {
           return 'Mi Cuenta';
         }
@@ -38,7 +46,7 @@ export class NavComponent extends BaseComponent implements AfterViewInit {
         if (userId) {
           return 'panel-de-control';
         }
-        return 'auth';
+        return 'iniciar-sesion';
       },
     },
   ];

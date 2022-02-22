@@ -22,6 +22,7 @@ import { AppInjector } from './shared/core/app-injector';
 import { HttpClientModule } from '@angular/common/http';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { EjerciciosComponent } from './ejercicios/ejercicios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LandingPageComponent,
     FooterComponent,
     PrivacyPolicyComponent,
+    EjerciciosComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

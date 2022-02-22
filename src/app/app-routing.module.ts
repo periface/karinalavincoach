@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 import { Routes, RouterModule } from '@angular/router';
+import { EjerciciosComponent } from './ejercicios/ejercicios.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MainAppComponent } from './main-app/main-app.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
@@ -12,11 +13,6 @@ const routes: Routes = [
     component: LandingPageComponent,
   },
   {
-    path: 'iniciar-sesion',
-    loadChildren: () =>
-      import('./main-app/auth/auth.module').then((m) => m.AuthModule),
-  },
-  {
     path: 'panel-de-control',
     loadChildren: () =>
       import('./main-app/main-app.module').then((m) => m.MainAppModule),
@@ -24,8 +20,17 @@ const routes: Routes = [
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
+    path: 'ejercicios',
+    component: EjerciciosComponent,
+  },
+  {
     path: 'politica-privacidad',
     component: PrivacyPolicyComponent,
+  },
+  {
+    path: 'iniciar-sesion',
+    loadChildren: () =>
+      import('./main-app/auth/auth.module').then((m) => m.AuthModule),
   },
   { component: LandingPageComponent, path: '', pathMatch: 'full' },
   { component: LandingPageComponent, path: '**' },
