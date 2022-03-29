@@ -1,3 +1,4 @@
+import { ConfirmComponent } from './confirm/confirm.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -7,7 +8,11 @@ import { InscribirseButtonComponent } from './inscribirse-button/inscribirse-but
 
 @NgModule({
   imports: [CommonModule, AngularMaterialModule, RouterModule],
-  declarations: [InscribirseButtonComponent, CasoExitoComponent],
-  exports: [InscribirseButtonComponent, CasoExitoComponent],
+  declarations: [
+    InscribirseButtonComponent,
+    CasoExitoComponent,
+    ConfirmComponent,
+  ],
+  exports: [InscribirseButtonComponent, CasoExitoComponent, ConfirmComponent],
 })
 export class SharedComponentsModule {}

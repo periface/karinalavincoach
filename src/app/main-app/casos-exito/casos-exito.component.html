@@ -7,7 +7,11 @@
   </div>
   <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center">
     <div class="gallery-box">
-      <div *ngFor="let item of this.casosExito" class="antes-despues-container">
+      <div fxFlex.xs="100" fxFlex="25"
+        (click)="crear(item)"
+        *ngFor="let item of this.casosExito"
+        class="antes-despues-container"
+      >
         <div class="image">
           <img src="{{ item.image }}" alt="cliente" />
         </div>
@@ -15,8 +19,6 @@
           <p>
             {{ item.name }}
           </p>
-          <a (click)="crear()" mat-raised-button color="primary"> Editar </a>
-          <a mat-raised-button color="warn"> Eliminar </a>
         </div>
       </div>
     </div>

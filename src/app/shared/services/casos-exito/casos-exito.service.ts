@@ -17,6 +17,7 @@ export class CasosExitoService {
         map((actions) =>
           actions.map((a) => {
             const data = a.payload.doc.data() as CasoExito;
+            data['id'] = a.payload.doc.id;
             return { ...data };
           })
         )
@@ -30,9 +31,13 @@ export class CasosExitoService {
       .pipe(
         map((a) => {
           const data = a.payload.data() as CasoExito;
+          data['id'] = a.payload.id;
           return { ...data };
         })
       );
+  }
+  deleteCaso(input: CasoExito): Promise<void> {
+    return this.afs.collection('casos-exito').doc(input.id).delete();
   }
   /**
    *

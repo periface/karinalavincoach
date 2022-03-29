@@ -78,10 +78,6 @@ export class MiCuentaComponent {
         ],
       ],
       sexo: ['', Validators.required],
-      discapacidad: ['', Validators.required],
-      nacionalidad: ['', Validators.required],
-      ciudad: ['', Validators.required],
-      estado: ['', Validators.required],
     });
   }
   private buildPopulatedForm(privateUser: any) {
@@ -103,10 +99,6 @@ export class MiCuentaComponent {
         ],
       ],
       sexo: [privateUser.sexo, Validators.required],
-      discapacidad: [privateUser.discapacidad, Validators.required],
-      nacionalidad: [privateUser.nacionalidad, Validators.required],
-      ciudad: [privateUser.ciudad, Validators.required],
-      estado: [privateUser.estado, Validators.required],
     });
 
     this.showIsProfesor = privateUser.esProfesor == '1' ? true : false;

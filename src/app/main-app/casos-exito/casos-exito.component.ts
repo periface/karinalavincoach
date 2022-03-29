@@ -1,3 +1,4 @@
+import { ConfirmComponent } from './../../shared/components/confirm/confirm.component';
 import { CasosExitoCreateComponent } from './casos-exito-create/casos-exito-create.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CasosExitoService } from './../../shared/services/casos-exito/casos-exito.service';
@@ -24,14 +25,12 @@ export class CasosExitoComponent extends BaseComponent implements OnInit {
     });
   }
   crear(element?: CasoExito) {
+    console.log(element);
     let dialogRef = this.matDialog.open(CasosExitoCreateComponent, {
       data: element || null,
     });
     dialogRef.afterClosed().subscribe((elm) => {
       console.log(elm);
     });
-  }
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.casosExito, event.previousIndex, event.currentIndex);
   }
 }
