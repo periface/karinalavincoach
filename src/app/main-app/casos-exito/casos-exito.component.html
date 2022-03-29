@@ -1,0 +1,24 @@
+<div class="main-container">
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
+    <h1 fxFlex="100" class="text-center">Casos de éxito</h1>
+    <p fxFlex="100" class="text-center">
+      <a mat-raised-button color="primary" (click)="crear()">Agregar nuevo</a>
+    </p>
+  </div>
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center">
+    <div class="gallery-box">
+      <div *ngFor="let item of this.casosExito" class="antes-despues-container">
+        <div class="image">
+          <img src="{{ item.image }}" alt="cliente" />
+        </div>
+        <div class="text">
+          <p>
+            {{ item.name }}
+          </p>
+          <a (click)="crear()" mat-raised-button color="primary"> Editar </a>
+          <a mat-raised-button color="warn"> Eliminar </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

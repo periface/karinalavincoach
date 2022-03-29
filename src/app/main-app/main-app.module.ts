@@ -1,3 +1,4 @@
+import { CasosExitoCreateComponent } from './casos-exito/casos-exito-create/casos-exito-create.component';
 import { NgModule } from '@angular/core';
 import { AngularMaterialModule } from '../shared/angular-material.module';
 import { MainAppComponent } from './main-app.component';
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChangePasswordComponent } from './seguridad/change-password-dialog/change-password.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
+import { CasosExitoComponent } from './casos-exito/casos-exito.component';
 @NgModule({
   imports: [
     MainAppRoutingModule,
@@ -27,6 +29,8 @@ import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
     SeguridadComponent,
     ChangePasswordComponent,
     MiCuentaComponent,
+    CasosExitoComponent,
+    CasosExitoCreateComponent,
   ],
   providers: [],
 })

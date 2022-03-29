@@ -24,6 +24,26 @@
           Mi Cuenta
         </button>
         <button
+          routerLink="ejercicios"
+          (click)="
+            this.showMenuBtn ? (this.opened = false) : (this.opened = true)
+          "
+          mat-list-item
+          *ngIf="isAdmin()"
+        >
+          Ejercicios
+        </button>
+        <button
+          routerLink="casos-exito"
+          (click)="
+            this.showMenuBtn ? (this.opened = false) : (this.opened = true)
+          "
+          mat-list-item
+          *ngIf="isAdmin()"
+        >
+          Casos de éxito
+        </button>
+        <button
           routerLink="usuarios"
           (click)="
             this.showMenuBtn ? (this.opened = false) : (this.opened = true)

@@ -1,0 +1,26 @@
+.gallery-box {
+  padding: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .antes-despues-container {
+    flex: 1;
+    /* additionally, equal width */
+
+    padding: 1em;
+
+    .image {
+      max-height: 500px;
+      overflow: hidden;
+      width: 100%;
+
+      img {
+        width: 100%;
+        border-radius: 15px;
+      }
+    }
+  }
+}

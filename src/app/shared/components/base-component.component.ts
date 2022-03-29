@@ -111,7 +111,7 @@ export class BaseComponent {
         return JSON.parse(ipLocal);
       }
       const ip = await this.http
-        .get('http://api.ipify.org/?format=json')
+        .get('https://api.ipify.org/?format=json')
         .toPromise();
       return ip;
     } catch (error) {

@@ -1,3 +1,4 @@
+import { SharedComponentsModule } from './shared/components/shared-components.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { Injector, NgModule } from '@angular/core';
 
@@ -42,6 +43,7 @@ import { EjerciciosComponent } from './ejercicios/ejercicios.component';
     AngularMaterialModule,
     HttpClientModule,
     FlexLayoutModule,
+    SharedComponentsModule,
   ],
   providers: [ScreenTrackingService, UserTrackingService, WindowRef],
   bootstrap: [AppComponent],

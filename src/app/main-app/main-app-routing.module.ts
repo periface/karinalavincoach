@@ -1,3 +1,4 @@
+import { CasosExitoComponent } from './casos-exito/casos-exito.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'usuarios',
         component: UsuariosComponent,
+      },
+      {
+        path: 'casos-exito',
+        component: CasosExitoComponent,
       },
       {
         path: '',
