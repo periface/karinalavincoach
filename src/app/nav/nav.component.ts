@@ -29,10 +29,10 @@ export class NavComponent extends BaseComponent implements AfterViewInit {
       url: '/',
     },
 
-    {
-      title: '¿Dificultades con tu técnica?',
-      url: 'ejercicios',
-    },
+    // {
+    //   title: '¿Dificultades con tu técnica?',
+    //   url: 'ejercicios',
+    // },
     {
       title: () => {
         let userId = this.localStorageService.getUserId;
