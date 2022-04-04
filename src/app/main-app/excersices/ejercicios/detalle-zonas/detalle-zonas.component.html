@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Detalle, zonas musculares</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Detalle de ejercicio: {{ data.ejercicio.name }}</h3>
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let zona of data.zonas" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ zona.zonaMuscular }} </mat-panel-title>
+        <!-- <mat-panel-description>
+          This is a summary of the content
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+
+      <p *ngFor="let sub of zona.subZonas">
+        {{ sub.subZona }}
+        <mat-label color="warn">Carga: {{ sub.carga }}</mat-label>
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

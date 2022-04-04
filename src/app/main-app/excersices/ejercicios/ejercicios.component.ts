@@ -1,40 +1,52 @@
 import { map } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { BaseComponent } from 'src/app/shared/components/base-component.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { DetalleZonasComponent } from './detalle-zonas/detalle-zonas.component';
 
 @Component({
   templateUrl: './ejercicios.component.html',
   styleUrls: ['./ejercicios.component.scss'],
 })
-export class EjerciciosComponent extends BaseComponent implements OnInit {
+export class EjerciciosComponent
+  extends BaseComponent
+  implements OnInit, AfterViewInit
+{
+  displayedColumns: string[] = ['nombre', 'opciones'];
+  dataSource!: MatTableDataSource<any>;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort)
+  sort!: MatSort;
   groups: any = [];
   categorias: any[] = [];
   ejercicios: any[] = [];
   /**
    *
    */
-  constructor(private afs: AngularFirestore) {
-    super();
-  }
-  ngOnInit(): void {
-    // let sub = this.afs
-    //   .collection('categoria-ejercicio')
-    //   .snapshotChanges()
-    //   .pipe(
-    //     map((actions) =>
-    //       actions.map((a) => {
-    //         const data = a.payload.doc.data() as any;
-    //         data['id'] = a.payload.doc.id;
-    //         return { ...data };
-    //       })
-    //     )
-    //   )
-    //   .subscribe((data) => {
-    //     console.log(data);
-    //     this.categorias = data;
-    //     sub.unsubscribe();
-    //   });
+  constructor(private afs: AngularFirestore, private matDialog: MatDialog) {
+    super(); //
+    let sub = this.afs
+      .collection('categoria-ejercicio')
+      .snapshotChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const data = a.payload.doc.data() as any;
+            data['id'] = a.payload.doc.id;
+            return { ...data };
+          })
+        )
+      )
+      .subscribe((data) => {
+        console.log(data);
+        this.categorias = data;
+        sub.unsubscribe();
+      });
     let exSb = this.afs
       .collection('ejercicios')
       .snapshotChanges()
@@ -49,8 +61,90 @@ export class EjerciciosComponent extends BaseComponent implements OnInit {
       )
       .subscribe((data) => {
         this.ejercicios = data;
+        this.dataSource = new MatTableDataSource(this.ejercicios);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
         exSb.unsubscribe();
       });
+  }
+  ngOnInit(): void {}
+  ngAfterViewInit() {
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+  }
+  cargaDetalle(value: any) {
+    console.log(value);
+    this.afs
+      .collection('zonas-musculares', (ref) =>
+        ref.where('ejercicioId', '==', value.id)
+      )
+      .snapshotChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const data = a.payload.doc.data() as any;
+            data['id'] = a.payload.doc.id;
+            return { ...data };
+          })
+        )
+      )
+      .subscribe((data) => {
+        console.log(data);
+        this.matDialog.open(DetalleZonasComponent, {
+          data: { ejercicio: value, zonas: data },
+        });
+      });
+  }
+  changeCat($event: any) {
+    console.log($event);
+    const filterValue = $event;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  async guardarTodo() {
+    for await (const group of this.groups) {
+      let categoria = { name: group.key, id: this.afs.createId() };
+      await this.afs
+        .collection('categoria-ejercicio')
+        .doc(categoria.id)
+        .set(categoria);
+
+      for await (const ej of group.elements) {
+        let ejercicio = {
+          name: ej.Ejercicio,
+          id: this.afs.createId(),
+          idCategoria: categoria.id,
+        };
+        await this.afs
+          .collection('ejercicios')
+          .doc(ejercicio.id)
+          .set(ejercicio);
+        console.log(ejercicio);
+        for await (const zona of ej.zonasMusculares) {
+          let zonaMuscular = {
+            zonaMuscular: zona.key,
+            subZonas: zona.elements,
+            id: this.afs.createId(),
+            ejercicioId: ejercicio.id,
+          };
+          await this.afs
+            .collection('zonas-musculares')
+            .doc(zonaMuscular.id)
+            .set(zonaMuscular);
+        }
+      }
+    }
   }
   checkEx($event: any) {
     let file = $event.target.files[0];
@@ -108,39 +202,5 @@ export class EjerciciosComponent extends BaseComponent implements OnInit {
       result.push(ejercicioObj);
     }
     return result;
-  }
-  async guardarTodo() {
-    for await (const group of this.groups) {
-      let categoria = { name: group.key, id: this.afs.createId() };
-      await this.afs
-        .collection('categoria-ejercicio')
-        .doc(categoria.id)
-        .set(categoria);
-
-      for await (const ej of group.elements) {
-        let ejercicio = {
-          name: ej.Ejercicio,
-          id: this.afs.createId(),
-          idCategoria: categoria.id,
-        };
-        await this.afs
-          .collection('ejercicios')
-          .doc(ejercicio.id)
-          .set(ejercicio);
-        console.log(ejercicio);
-        for await (const zona of ej.zonasMusculares) {
-          let zonaMuscular = {
-            zonaMuscular: zona.key,
-            subZonas: zona.elements,
-            id: this.afs.createId(),
-            ejercicioId: ejercicio.id,
-          };
-          await this.afs
-            .collection('zonas-musculares')
-            .doc(zonaMuscular.id)
-            .set(zonaMuscular);
-        }
-      }
-    }
   }
 }
