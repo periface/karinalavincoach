@@ -1,15 +1,15 @@
 import { CasosExitoComponent } from './casos-exito/casos-exito.component';
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
-import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularMaterialModule } from '../shared/angular-material.module';
 import { redirectUnauthorizedToLogin } from '../shared/services/pipes/redirect-login.pipe';
 import { MainAppComponent } from './main-app.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { SeguridadComponent } from './seguridad/seguridad.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { RoutinesComponent } from './routines/routines.component';
+import { CreateRoutineComponent } from './routines/create-edit/create-edit-routine.component';
+import { EjerciciosComponent } from './excersices/ejercicios/ejercicios.component';
 const routes: Routes = [
   {
     path: '',
@@ -32,6 +32,18 @@ const routes: Routes = [
       {
         path: 'casos-exito',
         component: CasosExitoComponent,
+      },
+      {
+        path: 'ejercicios',
+        component: EjerciciosComponent,
+      },
+      {
+        path: 'rutinas',
+        component: RoutinesComponent,
+      },
+      {
+        path: 'crear-rutina',
+        component: CreateRoutineComponent,
       },
       {
         path: '',

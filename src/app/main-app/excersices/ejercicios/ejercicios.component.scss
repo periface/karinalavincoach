@@ -1,0 +1,17 @@
+p,
+h3 {
+  margin: 0;
+}
+.ejercicio {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .details {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+.zona-details {
+  width: 10%;
+}

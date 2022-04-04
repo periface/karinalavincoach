@@ -63,6 +63,12 @@ export class BaseComponent {
       return false;
     }
   }
+  groupBy(xs: any, key: any) {
+    return xs.reduce(function (rv: any, x: any) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+  }
   //Construye el objeto de conferencia para usarse en la UI
   buildCourseObject(obj: any) {
     let courseObj = {

@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChangePasswordComponent } from './seguridad/change-password-dialog/change-password.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { CasosExitoComponent } from './casos-exito/casos-exito.component';
+import { RoutinesComponent } from './routines/routines.component';
+import { CreateRoutineComponent } from './routines/create-edit/create-edit-routine.component';
+import { EjerciciosComponent } from './excersices/ejercicios/ejercicios.component';
 @NgModule({
   imports: [
     MainAppRoutingModule,
@@ -31,6 +34,9 @@ import { CasosExitoComponent } from './casos-exito/casos-exito.component';
     MiCuentaComponent,
     CasosExitoComponent,
     CasosExitoCreateComponent,
+    RoutinesComponent,
+    CreateRoutineComponent,
+    EjerciciosComponent,
   ],
   providers: [],
 })

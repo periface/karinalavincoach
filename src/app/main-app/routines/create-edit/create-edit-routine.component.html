@@ -1,0 +1,87 @@
+<div class="main-container">
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
+    <h1 fxFlex="100" class="text-center">Generador de rutinas</h1>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="space-between">
+    <div class="padding" fxFlex="30">
+      <form [formGroup]="formGroup" (ngSubmit)="save()">
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="name"
+            type="text"
+            placeholder="Nombre"
+            value="value"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="description"
+            type="text"
+            placeholder="Descripción"
+            value="value"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="description"
+            type="number"
+            placeholder="Duración (semanas)"
+            value="value"
+          />
+        </mat-form-field>
+
+        <h4>Objetivo</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Cars</mat-label>
+          <mat-select required>
+            <mat-option value="volvo">Volvo</mat-option>
+            <mat-option value="saab">Saab</mat-option>
+            <mat-option value="mercedes">Mercedes</mat-option>
+            <mat-option value="audi">Audi</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="padding" fxFlex="70">
+      <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+        <div fxFlex="100">
+          <h2>LUNES</h2>
+          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <hr />
+        </div>
+        <div fxFlex="100">
+          <h2>MARTES</h2>
+          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <hr />
+        </div>
+        <div fxFlex="100">
+          <h2>MIÉRCOLES</h2>
+          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <hr />
+        </div>
+        <div fxFlex="100">
+          <h2>JUEVES</h2>
+          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <hr />
+        </div>
+        <div fxFlex="100">
+          <h2>VIERNES</h2>
+          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <hr />
+        </div>
+        <div fxFlex="100">
+          <h2>SABADO</h2>
+          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
