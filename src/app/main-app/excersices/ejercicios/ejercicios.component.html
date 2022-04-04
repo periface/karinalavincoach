@@ -4,41 +4,12 @@
     <button mat-raised-button routerLink="/panel-de-control/crear-ejericio">
       Agregar ejercicio
     </button>
-    <br />
-    <input type="file" (change)="checkEx($event)" />
+    <!-- <button (click)="guardarTodo()">Guardar</button> -->
+    <!-- <br />
+    <input type="file" (change)="checkEx($event)" /> -->
   </div>
 
   <div fxLayout="row wrap" fxLayoutAlign="center center">
-    <div class="padding" *ngFor="let item of groups" fxFlex="100">
-      <h2>TIPO: {{ item.key }}</h2>
-      <hr />
-      <div class="ejercicio">
-        <div class="details" *ngFor="let element of item.elements">
-          <h3>{{ element.Ejercicio }}</h3>
-          <h4>Zonas musculares</h4>
-          <mat-accordion>
-            <mat-expansion-panel
-              *ngFor="let zona of element.zonasMusculares"
-              hideToggle
-            >
-              <mat-expansion-panel-header>
-                <mat-panel-title> {{ zona.key }} </mat-panel-title>
-              </mat-expansion-panel-header>
-              <div
-                *ngFor="let detalleZona of zona.elements"
-                class="zona-details"
-              >
-                <p>{{ detalleZona.subZona }}</p>
-                <mat-progress-bar
-                  color="{{ detalleZona.carga > 2 ? 'warn' : 'primary' }}"
-                  mode="determinate"
-                  value="{{ detalleZona.carga * 10 }}"
-                ></mat-progress-bar>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
-        </div>
-      </div>
-    </div>
+
   </div>
 </div>
