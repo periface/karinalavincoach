@@ -1,0 +1,145 @@
+﻿Tipo,Ejercicio,Pecho-Pectoral Superior,Pecho-Pectoral Medio,Pecho-Pectoral Inferior,Hombro-Deltoides Anterior,Hombro-Deltoides Medio,Hombro-Deltoides Posterior,Brazo-Tricep,Brazo-Bicep,Brazo-Antebrazo,ESPALDA-DORSAL,ESPALDA-REDONDO,ESPALDA-SACROLUMBAR,ESPALDA-TRAPECIO,PIERNA-GLÚTEO,PIERNA-CUÁDRICEPS,PIERNA-FEMORAL,PIERNA-GEMELO,TORSO-SERRATO,TORSO-OBLICUO,TORSO-ABDOMEN SUPERIOR,TORSO-ABDOMEN INFERIOR
+Primario,Pecho-Press de banca plano,2,3,2,2,,,2,,,,,,,,,,,1,,,
+Secundario,Pecho-Press de banca inclinado,3,2,2,2,,,2,,,,,,,,,,,1,,,
+Primario,Pecho-Press de banca declinado,2,2,3,2,,,2,,,,,,,,,,,1,,,
+Primario,Pecho-Flexiones de brazos en el suelo,2,3,2,2,,,3,,,,,,,,,,,2,,,
+Primario,Pecho-Fondos paralelas,2,2,3,2,,,3,,,,,,,,,,,1,,,
+Secundario,Pecho-Press mancuernas banco plano,2,3,2,2,,,2,,,,,,,,,,,1,,,
+Auxiliar,Pecho-Aperturas mancuernas banco plano,2,3,2,1,,,1,,,,,,,,,,,1,,,
+Secundario,Pecho-Press mancuernas banco inclinado,3,2,2,2,,,1,,,,,,,,,,,2,,,
+Auxiliar,Pecho-Aperturas mancuernas banco inclinado,3,2,2,1,,,1,,,,,,,,,,,1,,,
+Auxiliar,Pecho-Aperturas en contractor de pecho,2,3,2,1,,,,1,,,,,,,,,,1,,,
+Auxiliar,Pecho-Cruces de pie con poleas,2,3,2,1,,,,,,,,,,,,,,,,,
+Secundario,Pecho-Pull-over con mancuerna,2,3,2,,,,2,,,2,2,,,,,,,2,,,
+Secundario,Pecho-Pull-over con barra en banco plano,2,3,2,,,,2,,,2,2,,,,,,,2,,,
+Secundario,Bíceps-Curl bíceps alterno con supinación,1,,,2,,,,3,2,,,,,,,,,,,,
+Auxiliar,Bíceps-Curl bíceps concentrado en muslo,,,,,,,,3,,,,,,,,,,,,,
+Secundario,Bíceps-Curl bíceps alterno tipo martillo,,,,,,,,2,3,,,,,,,,,,,,
+Auxiliar,Bíceps-Curl de bíceps con polea,,,,,,,,3,,,,,,,,,,,,,
+Auxiliar,Bíceps-Brazos en cruz en polea alta,,,,,,,,3,,,,,,,,,,,,,
+Primario,Bíceps-Curl de bíceps con barra,,,,,,,,3,2,,,,,,,,,,,,
+Primario,Bíceps-Bíceps en banco Scott (barra z),,,,,,,,3,1,,,,,,,,,,,,
+Primario,Bíceps-Curl de bíceps en el banco Scott,,,,,,,,3,,,,,,,,,,,,,
+Secundario,Bíceps-Curl de bíceps con barra en pronación,,,,,,,,2,3,,,,,,,,,,,,
+Auxiliar,"Antebrazo-Curl de antebrazos, barra en pronación",,,,,,,,,3,,,,,,,,,,,,
+Auxiliar,"Antebrazo-Curl de antebrazos, barra en supinación",,,,,,,,,3,,,,,,,,,,,,
+Primario,Tríceps-Press de banca plano manos juntas,2,2,2,2,,,3,,,,,,,,,,,1,,,
+Primario,Tríceps-Fondos paralelas,2,2,3,2,,,3,,,,,,,,,,,1,,,
+Auxiliar,Tríceps-Extensiones de tríceps en polea alta,,,,,,,3,,,,,,,,,,,,,,
+Auxiliar,Tríceps-Extensiones de tríceps en polea alta con cuerda,,,,,,,3,,,,,,,,,,,,,,
+Auxiliar,Tríceps-Extensiones tríceps en polea agarre invertido,,,,,,,3,,2,,,,,,,,,,,,
+Auxiliar,Tríceps-Extensión alternada polea alta en supinación,,,,,,,3,,,,,,,,,,,,,,
+Primario,Tríceps-Press francés en banco plano,,,,,,,3,,,,,,,,,,,,,,
+Secundario,Tríceps-Press francés en banco plano con mancuernas,,,,,,,3,,,,,,,,,,,,,,
+Auxiliar,Tríceps-Extensión vertical de codos con mancuerna,,,,,,,3,,,,,,,,,,,,,,
+Secundario,Tríceps-Extensión codos con mancuerna a dos manos,,,,,,,3,,,,,,,,,,,,,,
+Secundario,Tríceps-Extensión de los codos sentado con barra,,,,,,,3,,,,,,,,,,,,,,
+Secundario,Tríceps-Extensión de codos con mancuerna,,,,,,,3,,,,,,,,,,,,,,
+Primario,Tríceps-Dipping entre dos bancos,2,2,2,2,,,3,,,,,,,,,,,,,,
+Primario,Hombro-Press tras nuca con barra,,,,2,3,3,2,,,,,,2,,,,,2,,,
+Primario,Hombro-Press frontal con barra,2,,,3,2,2,2,,,,,,2,,,,,2,,,
+Secundario,Hombro-Press sentado con mancuernas,,,,2,3,2,2,,,,,,2,,,,,2,,,
+Secundario,Hombro-Press frontal con rotación de muñeca,2,,,3,2,2,2,,,,,,2,,,,,2,,,
+Auxiliar,Hombro-Elevaciones laterales de brazos con mancuernas,,,,2,3,2,,,,,,,3,,,,,,,,
+Auxiliar,Hombro-Elevaciones laterales tronco inclinado o pájaro,,,,2,2,3,,,,,2,,3,,,,,,,,
+Auxiliar,Hombro-Elevaciones frontales alternas mancuernas,3,,,3,2,2,,,,,,,1,,,,,,,,
+Auxiliar,Hombro-Elevaciones laterales acostado de lado,,,,3,3,3,,,,,,,,,,,,,,,
+Auxiliar,Hombro-Elevaciones laterales alternas con polea baja,,,,2,3,2,,,,,,,,,,,,,,,
+Auxiliar,Hombro-Elevaciones frontales alternas con polea baja,3,,,3,3,3,,1,,,,,,,,,,,,,
+Auxiliar,Hombro-Elevaciones posteriores con polea baja,,,,2,2,3,,,,,,,2,,,,,,,,
+Auxiliar,Hombro-Elevaciones frontales con una mancuerna,3,,,3,2,2,,2,,,,,,,,,,,,,
+Auxiliar,Hombro-Elevaciones frontales con barra,3,,,3,2,2,,1,,,,,2,,,,,2,,,
+Auxiliar,Hombro-Remo al cuello manos separadas,,,,2,3,2,,2,2,,,1,3,1,,,,,1,1,1
+Auxiliar,Hombro-Elevaciones laterales en máquina,,,,2,3,2,,,,,,,1,,,,,,,,
+Auxiliar,Hombro-Deltoides posterior en máquina específica,,,,2,2,3,,,,,2,,2,,,,,,,,
+Primario,Espalda-Dominadas en barra fija,1,2,1,,,,,2,3,3,3,,2,,,,,,,,
+Primario,"Espalda-Dominadas en barra fija, agarre en supinación",1,1,1,,,,,3,3,3,3,,2,,,,,,,,
+Secundario,Espalda-Polea al pecho,1,1,1,,,,,2,,3,3,,2,,,,,,,,
+Secundario,Espalda-Polea tras nuca,,,,,,,,2,2,3,3,,2,,,,,,,,
+Secundario,Espalda-Polea al pecho agarre estrecho,1,1,1,,,1,,2,1,3,3,,2,,,,,,,,
+Auxiliar,"Espalda-Pull-over con polea alta, brazos extendidos",2,2,2,,,,2,,,3,3,,,,,,,,,,
+Secundario,"Espalda-Remo en polea baja, agarre estrecho",,,,,,2,,2,2,3,3,,2,,,,,,,,
+Secundario,Espalda-Remo horizontal a una mano con mancuernas,,,,,,2,,2,2,3,3,,2,,,,,,,,
+Primario,"Espalda-Remo horizontal con barra, manos en pronación",,,,,,2,,2,2,3,3,1,2,,,,,,1,1,1
+Primario,Espalda-Remo en barra T con apoyo al pecho,,,,,,3,,2,2,3,3,,2,,,,,,,,
+Auxiliar,"Espalda-Extensión de tronco en banco, hiperextensiones",,,,,,,,,,1,,3,,2,,2,,,,,
+Auxiliar,Espalda-Extensión de tronco en el suelo,,,,,,,,,,1,,3,,2,,,,,,,
+Auxiliar,Espalda-Estabilización horizontal piernas y brazos en alto,,,,1,1,1,,,,1,,3,,3,,,,,,,
+Secundario,Espalda-Remo al cuello con manos juntas,,,,3,3,3,,2,1,,,1,3,1,,,,,1,1,1
+Auxiliar,Espalda-Encogimiento de hombros con barra,,,,,,,,,,,,,3,,,,,,,,
+Auxiliar,Espalda-Encogimiento de hombros con mancuernas,,,,,,,,,,,,,3,,,,,,,,
+Auxiliar,"Espalda-Encogimiento de hombros,  en máquina",,,,,,,,,,,,,3,,,,,,,,
+Secundario,Cuádriceps-Flexión de rodillas con mancuernas,,,,,,,,,,,,,,3,3,2,,,,,
+Primario,Cuádriceps-Sentadillas,,,,,,,,,,,,3,,3,3,2,,,2,2,2
+Primario,Cuádriceps-Sentadillas frontales con barra,,,,,,,,,,,,3,,3,3,2,,,2,2,2
+Secundario,Cuádriceps-Sentadillas piernas separadas,,,,,,,,,,,,3,,3,3,2,,,2,2,2
+Secundario,Cuádriceps-Sentadillas con pica,,,,,,,,,,,,3,,3,3,2,,,2,2,2
+Secundario,Cuádriceps-Sentadillas frontales con pica,,,,,,,,,,,,3,,3,3,2,,,2,2,2
+Secundario,Cuádriceps-Sentadillas en multipower,,,,,,,,,,,,3,,3,3,2,,,1,1,1
+Secundario,Cuádriceps-Prensa de piernas inclinada,,,,,,,,,,,,,,3,3,3,,,,,
+Secundario,Cuádriceps-Sentadilla hack,,,,,,,,,,,,,,3,3,3,,,2,2,2
+Auxiliar,Cuádriceps-Extensión de rodillas en máquina,,,,,,,,,,,,,,,3,,,,,,
+Auxiliar,Cuádriceps-Abductores en máquina,,,,,,,,,,,,,,,3,,,,,,
+Auxiliar,Cuádriceps-Aductores en polea baja,,,,,,,,,,,,,,,3,,,,,,
+Auxiliar,Cuádriceps-Flexión de piernas en silla romana,,,,,,,,,,,,,,3,3,,,,,,
+Primario,Femoral-Peso muerto piernas semirrígidas,,,,,,,,,,,,3,,3,,3,,,,,
+Primario,Femoral-Peso muerto con barra,,,,,,,,,,1,1,3,2,3,3,3,,,2,2,2
+Primario,Femoral-Peso muerto estilo sumo,,,,,,,,,,1,1,3,3,3,3,,,,,,
+Primario,Femoral-Peso muerto rumano,,,,,,,,,,1,1,2,1,3,,3,,,2,2,2
+Auxiliar,Femoral-Curl de pierna acostado,,,,,,,,,,,,,,,,3,3,,,,
+Auxiliar,Femoral-Curl de piernas alterno de pie,,,,,,,,,,,,,,,,3,2,,,,
+Auxiliar,Femoral-Curl de piernas sentado en máquina,,,,,,,,,,,,,,,,3,2,,,,
+Secundario,"Femoral-Flexión del tronco al frente o ""buenos días""",,,,,,,,,,,,3,,3,,2,,,,,
+Auxiliar,"Gemelos-Elevación de talones de pie, en máquina",,,,,,,,,,,,,,,,,3,,,,
+Auxiliar,Gemelos-Elevación de un talón con mancuerna,,,,,,,,,,,,,,,,,3,,,,
+Auxiliar,"Gemelos-Gemelos en máquina, peso sobre la pelvis",,,,,,,,,,,,,,,,,3,,,,
+Auxiliar,Gemelos-Extensión de talones sentado en máquina,,,,,,,,,,,,,,,,,3,,,,
+Auxiliar,Gemelos-Elevaciones de talones sentado con barra,,,,,,,,,,,,,,,,,3,,,,
+Secundario,Glúteos-Zancadas,,,,,,,,,,,,,,3,3,2,,,,,
+Auxiliar,Glúteos-Abductores sentado en máquina,,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,"Glúteos-Abducción de la cadera, acostado",,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,"Glúteos-Abducción de la cadera, de pie en máquina",,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,"Glúteos-Abducción de la cadera, de pie en polea baja",,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,Glúteos-Elevación de la pelvis en el suelo,,,,,,,,,,,,,,3,,3,,,,,
+Auxiliar,Glúteos-Patada de glúteos en el suelo,,,,,,,,,,,,,,3,,2,,,,,
+Auxiliar,Glúteos-Extensión de la cadera en máquina,,,,,,,,,,,,,,3,,2,,,,,
+Auxiliar,Glúteos-Extensión de la cadera de pie,,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,Glúteos-Extensión de la cadera en polea baja,,,,,,,,,,,,,,3,,2,,,,,
+Auxiliar,Glúteos-Tijeras estáticas,,,,,,,,,,,,,,3,2,2,,,,,
+Auxiliar,Glúteos-Tijeras con barra,,,,,,,,,,,,,,3,2,2,,,,,
+Auxiliar,Glúteos-Tijeras con pica,,,,,,,,,,,,,,3,2,2,,,,,
+Auxiliar,Glúteos-Tijeras con mancuernas,,,,,,,,,,,,,,3,2,2,,,,,
+Auxiliar,Glúteos-Tijeras sobre banco,,,,,,,,,,,,,,3,2,2,,,,,
+Auxiliar,Glúteos-Elevación lateral de pierna,,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,Glúteos-Extensión cadera acostado en máquina,,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,Glúteos-Extensión cadera en banco plano,,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,Glúteos-Extensión cadera abdomen en suelo,,,,,,,,,,,,,,3,,,,,,,
+Auxiliar,Abdomen-Encogimientos o crunch,,,,,,,,,,,,,,,,,,,2,3,3
+Auxiliar,Abdomen-Encogimientos o crunch pies en suelo,,,,,,,,,,,,,,,,,,,2,3,2
+Auxiliar,Abdomen-Elevaciones del tronco en el suelo,,,,,,,,,,,,,,,,,,,2,3,3
+Auxiliar,Abdomen-Encogimientos con pies apoyados en banco,,,,,,,,,,,,,,,,,,,2,3,2
+Auxiliar,Abdomen-Elevaciones del tronco en banco inclinado,,,,,,,,,,,,,,,1,,,,2,3,3
+Auxiliar,Abdomen-Elevaciones del tronco en plancha inclinada,,,,,,,,,,,,,,,1,,,,2,3,3
+Auxiliar,Abdomen-Elevaciones de tronco en suspensión en banco,,,,,,,,,,,,,,,1,,,,2,3,3
+Auxiliar,Abdomen-Elevaciones de pelvis en suelo,,,,,,,,,,,,,,,,,,,3,3,3
+Auxiliar,Abdomen-Encogimientos abdominales con polea alta,,,,,,,,,,,,,,,,,,,2,3,3
+Auxiliar,Abdomen-Encogimientos en máquina específica,,,,,,,,,,,,,,,1,,,,3,2,2
+Auxiliar,Abdomen-Abdominal corto sentado en banco,,,,,,,,,,,,,,,1,,,,2,3,3
+Auxiliar,Abdomen-Abdominal corto oblicuo pies en suelo,,,,,,,,,,,,,,,1,,,,3,3,3
+Auxiliar,Abdomen-Oblicuos alternos en el suelo,,,,,,,,,,,,,,,1,,,,3,2,2
+Auxiliar,Abdomen-Elevaciones de piernas en plancha inclinada,,,,,,,,,,,,,,,1,,,,2,2,3
+Auxiliar,Abdomen-Elevaciones de rodillas en paralelas,,,,,,,,,,,,,,,1,,,,3,2,3
+Auxiliar,Abdomen-Elevaciones de piernas suspendido en barra,,,,,,,,,,,,,,,2,,,,2,3,3
+Auxiliar,Abdomen-Rotación del tronco con bastón,,,,,,,,,,,,,,,,,,,3,2,2
+Auxiliar,Abdomen-Rotación de pelvis en suelo,,,,,,,,,,,,,,,,,,,3,2,3
+Auxiliar,"Abdomen-Extensión de piernas en el suelo, pies bajos",,,,,,,,,,,,,,,1,,,,2,2,2
+Auxiliar,"Abdomen-Extensión de piernas en el suelo, pies altos",,,,,,,,,,,,,,,2,,,,2,3,3
+Auxiliar,Abdomen-Flexión lateral del tronco con mancuerna,,,,,,,,,,,,,,,,,,,3,2,2
+Auxiliar,Abdomen-Flexión lateral del tronco en polea baja,,,,,,,,,,,,,,,,,,,3,2,2
+Auxiliar,Abdomen-Flexión lateral del tronco en polea alta,,,,,,,,,,,,,,,,,,,3,2,2
+Auxiliar,Abdomen-Flexión lateral del tronco en banca,,,,,,,,,,,,,,,,,,,3,3,3
+Auxiliar,Abdomen-Flexión lateral del tronco en el suelo,,,,,,,,,,,,,,,,,,,3,3,3
+Auxiliar,"Abdomen-Contracción del abdomen, vacuum",,,,,,,,,,,,,,,,,,,,3,3
+Auxiliar,Abdomen-Semielevación de tronco en suelo,,,,,,,,,,,,,,,1,,,,2,3,2
+Auxiliar,"Abdomen-Abdominales isométricos o planks, frontales",,,,1,1,1,,,,,,,,2,,,,,2,3,3
+Auxiliar,Abdomen-Abdominales isométricos laterales,,,,1,1,1,,,,,,,,2,,,,,3,2,2
