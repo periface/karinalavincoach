@@ -5,55 +5,105 @@
 
   <div fxLayout="row wrap" fxLayoutAlign="space-between">
     <div class="padding" fxFlex="30">
-      <form [formGroup]="formGroup" (ngSubmit)="save()">
-        <mat-form-field>
-          <input
-            matInput
-            required
-            formControlName="name"
-            type="text"
-            placeholder="Nombre"
-            value="value"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            required
-            formControlName="description"
-            type="text"
-            placeholder="Descripción"
-            value="value"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            required
-            formControlName="description"
-            type="number"
-            placeholder="Duración (semanas)"
-            value="value"
-          />
-        </mat-form-field>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header> Detalles </mat-expansion-panel-header>
+          <form [formGroup]="formGroup" (ngSubmit)="save()">
+            <mat-form-field>
+              <input
+                matInput
+                required
+                formControlName="name"
+                type="text"
+                placeholder="Nombre"
+                value="value"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                required
+                formControlName="description"
+                type="text"
+                placeholder="Descripción"
+                value="value"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                required
+                formControlName="description"
+                type="number"
+                placeholder="Duración (semanas)"
+                value="value"
+              />
+            </mat-form-field>
 
-        <h4>Objetivo</h4>
-        <mat-form-field appearance="fill">
-          <mat-label>Cars</mat-label>
-          <mat-select required>
-            <mat-option value="musculacion">Musculación</mat-option>
-            <mat-option value="perder-peso">Perder peso</mat-option>
-            <mat-option value="mercedes">Mercedes</mat-option>
-            <mat-option value="audi">Audi</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </form>
+            <h4>Objetivo</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>Cars</mat-label>
+              <mat-select required>
+                <mat-option value="musculacion">Musculación</mat-option>
+                <mat-option value="perder-peso">Perder peso</mat-option>
+                <mat-option value="mercedes">Mercedes</mat-option>
+                <mat-option value="audi">Audi</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header> Ejercicios </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayoutAlign="center center">
+            <div fxFlex="100" class="padding">
+              <mat-form-field appearance="standard">
+                <mat-label>Filtro</mat-label>
+                <input
+                  matInput
+                  (keyup)="applyFilter($event)"
+                  placeholder="Ex. Abdomen"
+                  #input
+                />
+              </mat-form-field>
+            </div>
+            <div fxFlex="100" class="padding">
+              <mat-form-field appearance="fill">
+                <mat-label>Categoría</mat-label>
+                <mat-select (valueChange)="changeCat($event)">
+                  <mat-option
+                    *ngFor="let categoria of categorias"
+                    [value]="categoria.id"
+                  >
+                    {{ categoria.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxFlex="100" class="padding example-container">
+              <div
+                cdkDropList
+                #todoList="cdkDropList"
+                [cdkDropListData]="this.ejercicios"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)"
+              >
+                <div
+                  class="example-box"
+                  *ngFor="let item of this.ejercicios"
+                  cdkDrag
+                >
+                  {{ item.name }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
     <div class="padding" fxFlex="70">
       <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-        <div fxFlex="100">
+        <div fxFlex="100" class="day" (cdkDropListDropped)="drop($event)">
           <h2>LUNES</h2>
-          <button mat-mini-fab (click)="addEx(1)"><mat-icon>add</mat-icon></button>
           <hr />
         </div>
         <div fxFlex="100">
