@@ -10,6 +10,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RoutinesComponent } from './routines/routines.component';
 import { CreateRoutineComponent } from './routines/create-edit/create-edit-routine.component';
 import { EjerciciosComponent } from './excersices/ejercicios/ejercicios.component';
+import { GenerarEjercicioComponent } from './excersices/ejercicios/crear-ejercicio/generar-ejercicio/generar-ejercicio.component';
 const routes: Routes = [
   {
     path: '',
@@ -36,6 +37,14 @@ const routes: Routes = [
       {
         path: 'ejercicios',
         component: EjerciciosComponent,
+      },
+      {
+        path: 'crear-ejercicio',
+        component: GenerarEjercicioComponent,
+      },
+      {
+        path: 'crear-ejercicio/:id',
+        component: GenerarEjercicioComponent,
       },
       {
         path: 'rutinas',

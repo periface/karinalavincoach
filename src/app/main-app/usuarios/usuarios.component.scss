@@ -17,3 +17,10 @@ tr.element-row:not(.expanded-row):active {
   max-width: 30%;
   overflow: hidden;
 }
+table {
+  width: 100%;
+}
+td,
+th {
+  width: 25%;
+}

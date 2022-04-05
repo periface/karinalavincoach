@@ -13,7 +13,11 @@
 
       <p *ngFor="let sub of zona.subZonas">
         {{ sub.subZona }}
-        <mat-label color="warn">Carga: {{ sub.carga }}</mat-label>
+        <mat-progress-bar
+          color="{{ sub.carga > 2 ? 'warn' : 'primary' }}"
+          mode="determinate"
+          value="{{ sub.carga * (100 / 3) }}"
+        ></mat-progress-bar>
       </p>
     </mat-expansion-panel>
   </mat-accordion>

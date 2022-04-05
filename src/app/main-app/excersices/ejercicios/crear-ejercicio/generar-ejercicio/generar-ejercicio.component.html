@@ -1,0 +1,76 @@
+<div class="main-container">
+  <div fxLayout="row wrap" fxLayoutAlign="center" class="padding">
+    <h3>Crear ejercicio</h3>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-evenly">
+    <form  fxLayout="row wrap" fxLayoutAlign="space-evenly" fxFlex="100" [formGroup]="formGroup" (ngSubmit)="save()">
+      <div fxFlex="100" class="padding">
+        <mat-form-field class="small-form" appearance="fill">
+          <mat-label>Categoría</mat-label>
+          <mat-select required formControlName="idCategoria">
+            <mat-option
+              *ngFor="let categoria of categorias"
+              [value]="categoria.id"
+            >
+              {{ categoria.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100" class="padding">
+        <mat-form-field class="small-form" appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input
+            required
+            formControlName="name"
+            matInput
+            placeholder="Nombre"
+            value=""
+          />
+        </mat-form-field>
+      </div>
+      <div fxFlex="100" class="padding">
+        <button
+          mat-raised-button
+          [disabled]="!this.formGroup.valid"
+          (click)="save()"
+        >
+          Guardar
+        </button>
+      </div>
+    </form>
+    <div *ngIf="this.idEjercicio" fxFlex="100" class="padding">
+      <h3>Zonas musculares involucradas (Cargas)</h3>
+      <button mat-raised-button (click)="saveZonas()" color="accent">
+        Guardar zonas
+      </button>
+      <br />
+      <div
+        class="zonas-musculares"
+        fxLayout="row wrap"
+        fxLayoutAlign="space-evenly"
+      >
+        <mat-accordion fxFlex="100">
+          <mat-expansion-panel *ngFor="let item of zonasMusculares">
+            <mat-expansion-panel-header>
+              {{ item.zonaMuscular }}
+            </mat-expansion-panel-header>
+            <mat-form-field
+              *ngFor="let input of item.subZonas"
+              appearance="fill"
+            >
+              <mat-label>{{ input.subZona }}</mat-label>
+              <input
+                matInput
+                placeholder="Carga"
+                [(ngModel)]="input.carga"
+                min="0"
+                max="3"
+              />
+            </mat-form-field>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>

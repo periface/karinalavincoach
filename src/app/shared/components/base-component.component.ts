@@ -87,6 +87,20 @@ export class BaseComponent {
     };
     return courseObj;
   }
+  removeDuplicates(inArray: any[], comparableProp: string) {
+    var arr = inArray.concat(); // create a clone from inArray so not to change input array
+    //create the first cycle of the loop starting from element 0 or n
+    for (var i = 0; i < arr.length; ++i) {
+      //create the second cycle of the loop from element n+1
+      for (var j = i + 1; j < arr.length; ++j) {
+        //if the two elements are equal , then they are duplicate
+        if (arr[i][comparableProp] === arr[j][comparableProp]) {
+          arr.splice(j, 1); //remove the duplicated element
+        }
+      }
+    }
+    return arr;
+  }
   datesAreOnSameDay(first: Date, second: Date) {
     return (
       first.getFullYear() === second.getFullYear() &&

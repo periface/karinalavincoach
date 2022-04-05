@@ -16,6 +16,7 @@ import { RoutinesComponent } from './routines/routines.component';
 import { CreateRoutineComponent } from './routines/create-edit/create-edit-routine.component';
 import { EjerciciosComponent } from './excersices/ejercicios/ejercicios.component';
 import { DetalleZonasComponent } from './excersices/ejercicios/detalle-zonas/detalle-zonas.component';
+import { GenerarEjercicioComponent } from './excersices/ejercicios/crear-ejercicio/generar-ejercicio/generar-ejercicio.component';
 @NgModule({
   imports: [
     MainAppRoutingModule,
@@ -39,6 +40,7 @@ import { DetalleZonasComponent } from './excersices/ejercicios/detalle-zonas/det
     CreateRoutineComponent,
     EjerciciosComponent,
     DetalleZonasComponent,
+    GenerarEjercicioComponent,
   ],
   providers: [],
 })

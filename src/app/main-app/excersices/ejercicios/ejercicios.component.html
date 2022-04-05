@@ -1,7 +1,11 @@
 <div class="main-container">
   <div fxLayout="row wrap" fxLayoutAlign="center center">
     <h1 fxFlex="100" class="text-center">Catalogo de ejercicios</h1>
-    <button mat-raised-button routerLink="/panel-de-control/crear-ejericio">
+    <button
+      color="primary"
+      mat-raised-button
+      routerLink="/panel-de-control/crear-ejercicio"
+    >
       Agregar ejercicio
     </button>
     <!-- <button (click)="guardarTodo()">Guardar</button> -->
@@ -49,7 +53,14 @@
       <ng-container matColumnDef="opciones">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Opciones</th>
         <td mat-cell *matCellDef="let row">
-          <button (click)="cargaDetalle(row)" mat-raised-button>Detalle</button>
+          <button (click)="cargaDetalle(row)" mat-raised-button>
+            Zonas musculares</button
+          ><button
+            routerLink="/panel-de-control/crear-ejercicio/{{ row.id }}"
+            mat-raised-button
+          >
+            Editar
+          </button>
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -57,7 +68,7 @@
       <!-- Row shown when there is no matching data. -->
       <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell" colspan="4">
-          No data matching the filter "{{ input.value }}"
+          No hay datos con el filtro "{{ input.value }}"
         </td>
       </tr>
     </table>

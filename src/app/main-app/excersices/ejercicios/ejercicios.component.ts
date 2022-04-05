@@ -43,7 +43,6 @@ export class EjerciciosComponent
         )
       )
       .subscribe((data) => {
-        console.log(data);
         this.categorias = data;
         sub.unsubscribe();
       });
@@ -62,6 +61,7 @@ export class EjerciciosComponent
       .subscribe((data) => {
         this.ejercicios = data;
         this.dataSource = new MatTableDataSource(this.ejercicios);
+        console.log(this.ejercicios);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         exSb.unsubscribe();
@@ -74,7 +74,7 @@ export class EjerciciosComponent
   }
   cargaDetalle(value: any) {
     console.log(value);
-    this.afs
+    let sub = this.afs
       .collection('zonas-musculares', (ref) =>
         ref.where('ejercicioId', '==', value.id)
       )
@@ -89,10 +89,10 @@ export class EjerciciosComponent
         )
       )
       .subscribe((data) => {
-        console.log(data);
         this.matDialog.open(DetalleZonasComponent, {
           data: { ejercicio: value, zonas: data },
         });
+        sub.unsubscribe();
       });
   }
   changeCat($event: any) {

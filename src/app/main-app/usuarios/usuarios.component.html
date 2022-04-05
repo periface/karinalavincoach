@@ -4,14 +4,14 @@
   fxLayout.xs="column"
   fxLayoutAlign="center"
 >
-  <div fxLayout="row" fxLayoutAlign="center">
-    <div fxFlex="100">
-      <h3>USUARIOS</h3>
+  <div fxFlex="100" fxLayout="row" fxLayoutAlign="center">
+    <div class="padding" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center">
+      <h3 fxFlex="100">USUARIOS</h3>
       <table
+        fxFlex="100"
         mat-table
         multiTemplateDataRows
         [dataSource]="dataSourceMat"
-        class="mat-elevation-z8"
       >
         <ng-container
           matColumnDef="{{ column }}"
