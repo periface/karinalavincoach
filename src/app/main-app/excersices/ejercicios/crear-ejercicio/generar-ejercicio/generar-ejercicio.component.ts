@@ -99,7 +99,9 @@ export class GenerarEjercicioComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.params.id;
+
     if (id) {
+      this.formGroup.get('id')?.setValue(id);
       this.idEjercicio = id;
       this.afs
         .collection('ejercicios')
@@ -158,5 +160,9 @@ export class GenerarEjercicioComponent extends BaseComponent implements OnInit {
         continue;
       }
     }
+  }
+  async delete() {
+    console.log(this.idEjercicio);
+    await this.afs.collection('ejercicios').doc(this.idEjercicio).delete();
   }
 }

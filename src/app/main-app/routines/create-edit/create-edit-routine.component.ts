@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { BaseComponent } from 'src/app/shared/components/base-component.component';
 @Component({
   templateUrl: './create-edit-routine.component.html',
@@ -11,7 +12,11 @@ export class CreateRoutineComponent extends BaseComponent {
    *
    */
   formGroup: FormGroup;
-  constructor(private afs: AngularFirestore, private formBuilder: FormBuilder) {
+  constructor(
+    private afs: AngularFirestore,
+    private formBuilder: FormBuilder,
+    private matDialog: MatDialog
+  ) {
     super();
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
@@ -26,4 +31,5 @@ export class CreateRoutineComponent extends BaseComponent {
   save() {
     console.log(this.formGroup.value);
   }
+  addEx(dia: number) {}
 }
