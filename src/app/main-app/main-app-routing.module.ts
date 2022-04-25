@@ -53,6 +53,9 @@ const routes: Routes = [
       {
         path: 'crear-rutina',
         component: CreateRoutineComponent,
+      },{
+        path: 'crear-rutina/:id',
+        component: CreateRoutineComponent,
       },
       {
         path: '',

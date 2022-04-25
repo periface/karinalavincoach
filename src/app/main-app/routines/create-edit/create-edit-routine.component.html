@@ -1,134 +1,544 @@
 <div class="main-container">
-  <div fxLayout="row wrap" fxLayoutAlign="center center">
-    <h1 fxFlex="100" class="text-center">Generador de rutinas</h1>
-  </div>
-
   <div fxLayout="row wrap" fxLayoutAlign="space-between">
     <div class="padding" fxFlex="30">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header> Detalles </mat-expansion-panel-header>
-          <form [formGroup]="formGroup" (ngSubmit)="save()">
-            <mat-form-field>
-              <input
-                matInput
-                required
-                formControlName="name"
-                type="text"
-                placeholder="Nombre"
-                value="value"
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                matInput
-                required
-                formControlName="description"
-                type="text"
-                placeholder="Descripción"
-                value="value"
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                matInput
-                required
-                formControlName="description"
-                type="number"
-                placeholder="Duración (semanas)"
-                value="value"
-              />
-            </mat-form-field>
-
-            <h4>Objetivo</h4>
-            <mat-form-field appearance="fill">
-              <mat-label>Cars</mat-label>
-              <mat-select required>
-                <mat-option value="musculacion">Musculación</mat-option>
-                <mat-option value="perder-peso">Perder peso</mat-option>
-                <mat-option value="mercedes">Mercedes</mat-option>
-                <mat-option value="audi">Audi</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </form>
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header> Ejercicios </mat-expansion-panel-header>
-          <div fxLayout="row wrap" fxLayoutAlign="center center">
-            <div fxFlex="100" class="padding">
-              <mat-form-field appearance="standard">
-                <mat-label>Filtro</mat-label>
+      <div class="stiky">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header> Detalles </mat-expansion-panel-header>
+            <form [formGroup]="formGroup" (ngSubmit)="save()">
+              <mat-form-field>
                 <input
                   matInput
-                  (keyup)="applyFilter($event)"
-                  placeholder="Ex. Abdomen"
-                  #input
+                  required
+                  formControlName="name"
+                  type="text"
+                  placeholder="Nombre"
+                  value="value"
                 />
               </mat-form-field>
-            </div>
-            <div fxFlex="100" class="padding">
+              <mat-form-field>
+                <input
+                  matInput
+                  required
+                  formControlName="description"
+                  type="text"
+                  placeholder="Descripción"
+                  value="value"
+                />
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  matInput
+                  required
+                  formControlName="duracion"
+                  type="number"
+                  placeholder="Duración (semanas)"
+                  value="value"
+                />
+              </mat-form-field>
+              <mat-form-field style="width: 50%">
+                <input
+                  matInput
+                  required
+                  formControlName="pesoMin"
+                  type="number"
+                  placeholder="Peso min. (kg)"
+                  value="value"
+                />
+              </mat-form-field>
+              <mat-form-field style="width: 50%">
+                <input
+                  matInput
+                  required
+                  formControlName="pesoMax"
+                  type="number"
+                  placeholder="Peso max. (kg)"
+                  value="value"
+                />
+              </mat-form-field>
+              <mat-form-field style="width: 50%">
+                <input
+                  matInput
+                  required
+                  formControlName="estaturaMin"
+                  type="number"
+                  placeholder="Estatura min. (cm)"
+                  value="value"
+                />
+              </mat-form-field>
+              <mat-form-field style="width: 50%">
+                <input
+                  matInput
+                  required
+                  formControlName="estaturaMax"
+                  type="number"
+                  placeholder="Estatura max. (cm)"
+                  value="value"
+                />
+              </mat-form-field>
               <mat-form-field appearance="fill">
-                <mat-label>Categoría</mat-label>
-                <mat-select (valueChange)="changeCat($event)">
-                  <mat-option
-                    *ngFor="let categoria of categorias"
-                    [value]="categoria.id"
-                  >
-                    {{ categoria.name }}
-                  </mat-option>
+                <mat-label>Para sexo:</mat-label>
+                <mat-select formControlName="sexo" required>
+                  <mat-option value="masculino">Masculino</mat-option>
+                  <mat-option value="femenino">Femenino</mat-option>
                 </mat-select>
               </mat-form-field>
-            </div>
-            <div fxFlex="100" class="padding example-container">
-              <div
-                cdkDropList
-                #todoList="cdkDropList"
-                [cdkDropListData]="this.ejercicios"
-                class="example-list"
-                (cdkDropListDropped)="drop($event)"
-              >
+              <mat-form-field appearance="fill">
+                <mat-label>Objetivo del entrenamiento</mat-label>
+                <mat-select formControlName="objetivo" required>
+                  <mat-option value="musculacion">Musculación</mat-option>
+                  <mat-option value="perder-peso">Perder peso</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+          </mat-expansion-panel>
+          <mat-expansion-panel [ngClass]="{ hidden: !detailsCompleted }">
+            <mat-expansion-panel-header>
+              Ejercicios
+            </mat-expansion-panel-header>
+            <div fxLayout="row wrap" fxLayoutAlign="center center">
+              <div fxFlex="100" class="example-container">
                 <div
-                  class="example-box"
-                  *ngFor="let item of this.ejercicios"
-                  cdkDrag
+                  cdkDropList
+                  #ejerciciosList="cdkDropList"
+                  [cdkDropListData]="this.ejercicios"
+                  class="example-list"
+                  [cdkDropListConnectedTo]="[
+                    seleccionadosList,
+                    seleccionadosMartesList,
+                    seleccionadosMiercolesList,
+                    seleccionadosJuevesList,
+                    seleccionadosViernesList,
+                    seleccionadosSabadoList,
+                    seleccionadosDomingoList
+                  ]"
                 >
-                  {{ item.name }}
+                  <div
+                    class="example-box"
+                    *ngFor="let item of this.ejercicios"
+                    cdkDrag
+                  >
+                    {{ item.name }}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </mat-expansion-panel>
-      </mat-accordion>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <br />
+        <button mat-raised-button color="accent" (click)="save()">
+          Guardar
+        </button>
+      </div>
     </div>
-    <div class="padding" fxFlex="70">
+    <div class="overlay" *ngIf="!detailsCompleted">
+      <h1 class="text-center">Generador de rutinas</h1>
+      <h3>COMPLETE LOS DETALLES DE LA RUTINA PARA CONTINUAR</h3>
+    </div>
+    <div [ngClass]="{ hidden: !detailsCompleted }" class="padding" fxFlex="70">
       <div fxLayout="row wrap" fxLayoutAlign="space-between center">
-        <div fxFlex="100" class="day" (cdkDropListDropped)="drop($event)">
+        <div
+          fxFlex="100"
+          cdkDropList
+          #seleccionadosList="cdkDropList"
+          class="day"
+          [cdkDropListConnectedTo]="[ejerciciosList]"
+          [cdkDropListData]="selected['lunes']"
+          (cdkDropListDropped)="drop($event)"
+        >
           <h2>LUNES</h2>
+
+          <div class="example-container drop">
+            <div class="example-list drop">
+              <div
+                class="example-box drop"
+                cdkDrag
+                *ngFor="let item of selected['lunes']"
+              >
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+                    ></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+
+                <span class="name" style="margin-right: 2px">{{
+                  item.name
+                }}</span
+                ><mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Series"
+                    [(ngModel)]="item.series"
+                    type="number"
+                  />
+                </mat-form-field>
+                <br />
+                <mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Repeticiones"
+                    [(ngModel)]="item.reps"
+                    type="number"
+                  />
+                </mat-form-field>
+                <mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Comentarios"
+                    [(ngModel)]="item.comments"
+                    type="text"
+                  />
+                </mat-form-field>
+                <button
+                  (click)="removeItem(item, 'lunes')"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+              <div style="width: 100%; padding: 10px">
+                <button mat-button color="primary">
+                  Mostrar cargas totales
+                </button>
+              </div>
+            </div>
+          </div>
+
           <hr />
         </div>
-        <div fxFlex="100">
+        <div
+          cdkDropList
+          #seleccionadosMartesList="cdkDropList"
+          class="day"
+          [cdkDropListConnectedTo]="[ejerciciosList]"
+          [cdkDropListData]="selected['martes']"
+          (cdkDropListDropped)="drop($event)"
+          fxFlex="100"
+        >
           <h2>MARTES</h2>
-          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <div class="example-container drop">
+            <div class="example-list drop">
+              <div
+                class="example-box drop"
+                cdkDrag
+                *ngFor="let item of selected['martes']"
+              >
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+                    ></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+                {{ item.name
+                }}<mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Series"
+                    [(ngModel)]="item.series"
+                    type="number"
+                  />
+                </mat-form-field>
+                <mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Repeticiones"
+                    [(ngModel)]="item.reps"
+                    type="number"
+                  />
+                </mat-form-field>
+                <button
+                  (click)="removeItem(item, 'martes')"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
           <hr />
         </div>
-        <div fxFlex="100">
+        <div
+          cdkDropList
+          #seleccionadosMiercolesList="cdkDropList"
+          class="day"
+          [cdkDropListConnectedTo]="[ejerciciosList]"
+          [cdkDropListData]="selected['miercoles']"
+          (cdkDropListDropped)="drop($event)"
+          fxFlex="100"
+        >
           <h2>MIÉRCOLES</h2>
-          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <div class="example-container drop">
+            <div class="example-list drop">
+              <div
+                class="example-box drop"
+                cdkDrag
+                *ngFor="let item of selected['miercoles']"
+              >
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+                    ></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+                {{ item.name
+                }}<mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Series"
+                    [(ngModel)]="item.series"
+                    type="number"
+                  />
+                </mat-form-field>
+                <mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Repeticiones"
+                    [(ngModel)]="item.reps"
+                    type="number"
+                  />
+                </mat-form-field>
+                <button
+                  (click)="removeItem(item, 'miercoles')"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
           <hr />
         </div>
-        <div fxFlex="100">
+        <div
+          cdkDropList
+          #seleccionadosJuevesList="cdkDropList"
+          class="day"
+          [cdkDropListConnectedTo]="[ejerciciosList]"
+          [cdkDropListData]="selected['jueves']"
+          (cdkDropListDropped)="drop($event)"
+          fxFlex="100"
+        >
           <h2>JUEVES</h2>
-          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <div class="example-container drop">
+            <div class="example-list drop">
+              <div
+                class="example-box drop"
+                cdkDrag
+                *ngFor="let item of selected['jueves']"
+              >
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+                    ></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+                {{ item.name
+                }}<mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Series"
+                    [(ngModel)]="item.series"
+                    type="number"
+                  />
+                </mat-form-field>
+                <mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Repeticiones"
+                    [(ngModel)]="item.reps"
+                    type="number"
+                  />
+                </mat-form-field>
+                <button
+                  (click)="removeItem(item, 'jueves')"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
           <hr />
         </div>
-        <div fxFlex="100">
+        <div
+          cdkDropList
+          #seleccionadosViernesList="cdkDropList"
+          class="day"
+          [cdkDropListConnectedTo]="[ejerciciosList]"
+          [cdkDropListData]="selected['viernes']"
+          (cdkDropListDropped)="drop($event)"
+          fxFlex="100"
+        >
           <h2>VIERNES</h2>
-          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <div class="example-container drop">
+            <div class="example-list drop">
+              <div
+                class="example-box drop"
+                cdkDrag
+                *ngFor="let item of selected['viernes']"
+              >
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+                    ></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+                {{ item.name
+                }}<mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Series"
+                    [(ngModel)]="item.series"
+                    type="number"
+                  />
+                </mat-form-field>
+                <mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Repeticiones"
+                    [(ngModel)]="item.reps"
+                    type="number"
+                  />
+                </mat-form-field>
+                <button
+                  (click)="removeItem(item, 'viernes')"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
           <hr />
         </div>
-        <div fxFlex="100">
+        <div
+          cdkDropList
+          #seleccionadosSabadoList="cdkDropList"
+          class="day"
+          [cdkDropListConnectedTo]="[ejerciciosList]"
+          [cdkDropListData]="selected['sabado']"
+          (cdkDropListDropped)="drop($event)"
+          fxFlex="100"
+        >
           <h2>SABADO</h2>
-          <button mat-mini-fab><mat-icon>add</mat-icon></button>
+          <div class="example-container drop">
+            <div class="example-list drop">
+              <div
+                class="example-box drop"
+                cdkDrag
+                *ngFor="let item of selected['sabado']"
+              >
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+                    ></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+                {{ item.name
+                }}<mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Series"
+                    [(ngModel)]="item.series"
+                    type="number"
+                  />
+                </mat-form-field>
+                <mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Repeticiones"
+                    [(ngModel)]="item.reps"
+                    type="number"
+                  />
+                </mat-form-field>
+                <button
+                  (click)="removeItem(item, 'sabado')"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div
+          cdkDropList
+          #seleccionadosDomingoList="cdkDropList"
+          class="day"
+          [cdkDropListConnectedTo]="[ejerciciosList]"
+          [cdkDropListData]="selected['domingo']"
+          (cdkDropListDropped)="drop($event)"
+          fxFlex="100"
+        >
+          <h2>DOMINGO</h2>
+          <div class="example-container drop">
+            <div class="example-list drop">
+              <div
+                class="example-box drop"
+                cdkDrag
+                *ngFor="let item of selected['domingo']"
+              >
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+                    ></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+                {{ item.name
+                }}<mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Series"
+                    [(ngModel)]="item.series"
+                    type="number"
+                  />
+                </mat-form-field>
+                <mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Repeticiones"
+                    [(ngModel)]="item.reps"
+                    type="number"
+                  /> </mat-form-field
+                ><mat-form-field style="width: 25%">
+                  <input
+                    matInput
+                    placeholder="Comentarios"
+                    [(ngModel)]="item.comments"
+                    type="number"
+                  />
+                </mat-form-field>
+                <button
+                  (click)="removeItem(item, 'domingo')"
+                  mat-button
+                  color="warn"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
           <hr />
         </div>
       </div>

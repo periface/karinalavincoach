@@ -46,6 +46,32 @@
       matSort
     >
       <!-- Name Column -->
+      <ng-container matColumnDef="zonaBase">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Sección muscular (para busqueda)
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-select
+            style="width: 50%"
+            placeholder="Zona base"
+            [(ngModel)]="row.zonaBase" (selectionChange)="changeZonaBase($event,row)"
+          >
+            <mat-option value="superior-hombro"> Superior-Hombro </mat-option>
+            <mat-option value="superior-espalda"> Superior-Espalda </mat-option>
+            <mat-option value="superior-pecho"> Superior-Pecho </mat-option>
+            <mat-option value="superior-brazos"> Superior-Brazos </mat-option>
+            <mat-option value="superior-abdomen"> Superior-Abdomen </mat-option>
+            <mat-option value="inferior-cuadricep">
+              Inferior-Cuadricep
+            </mat-option>
+            <mat-option value="inferior-femoral"> Inferior-Femoral </mat-option>
+            <mat-option value="inferior-pantorrilla">
+              Inferior-Pantorrilla
+            </mat-option>
+            <mat-option value="inferior-gluteo"> Inferior-Gluteo </mat-option>
+          </mat-select>
+        </td>
+      </ng-container>
       <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
         <td mat-cell *matCellDef="let row">{{ row.name }}</td>

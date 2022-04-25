@@ -16,7 +16,7 @@ export class EjerciciosComponent
   extends BaseComponent
   implements OnInit, AfterViewInit
 {
-  displayedColumns: string[] = ['nombre', 'opciones'];
+  displayedColumns: string[] = ['zonaBase', 'nombre', 'opciones'];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -96,7 +96,6 @@ export class EjerciciosComponent
       });
   }
   changeCat($event: any) {
-    console.log($event);
     const filterValue = $event;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -111,6 +110,10 @@ export class EjerciciosComponent
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  async changeZonaBase(event: any, row: any) {
+    console.log(event, row);
+    await this.afs.collection('ejercicios').doc(row.id).set(row);
   }
   async guardarTodo() {
     for await (const group of this.groups) {
