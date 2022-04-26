@@ -31,7 +31,9 @@ export class CreateRoutineComponent extends BaseComponent {
     jueves: [],
     viernes: [],
     sabado: [],
+    domingo: [],
   };
+  temporal: any[] = [];
   detailsCompleted = false;
   formGroup: FormGroup;
   rutina: any;
@@ -72,7 +74,7 @@ export class CreateRoutineComponent extends BaseComponent {
         sub.unsubscribe();
       });
     let exSb = this.afs
-      .collection('ejercicios')
+      .collection('ejercicios', (ref) => ref.orderBy('name'))
       .snapshotChanges()
       .pipe(
         map((actions) =>
@@ -85,7 +87,8 @@ export class CreateRoutineComponent extends BaseComponent {
       )
       .subscribe((data) => {
         this.ejercicios = data;
-
+        this.temporal = data;
+        console.log(this.ejercicios);
         exSb.unsubscribe();
       });
 
@@ -99,6 +102,42 @@ export class CreateRoutineComponent extends BaseComponent {
         }
         this.detailsCompleted = true;
       });
+    }
+  }
+  changeZone($event: any) {
+    const filterValue = $event;
+    console.log(filterValue);
+    this.ejercicios = this.temporal.filter((a) => a.zonaBase == filterValue);
+  }
+  getIconName(item: any) {
+    switch (item.zonaBase) {
+      case 'superior-hombro':
+        return '/assets/img/shoulder.svg';
+      case 'superior-espalda':
+        return '/assets/img/human-back-side.svg';
+      case 'superior-pecho':
+        return '/assets/img/chest-male.svg';
+      case 'superior-brazos':
+        return '/assets/img/arm-muscles.svg';
+
+      case 'superior-abdomen':
+        return '/assets/img/abs-six-pack.svg';
+      case 'inferior-cuadricep':
+        return '/assets/img/knee.svg';
+      case 'inferior-femoral':
+        return '/assets/img/knee.svg';
+      case 'inferior-pantorrilla':
+        return '/assets/img/knee.svg';
+      case 'inferior-gluteo':
+        return '/assets/img/buttock-underwear.svg';
+      case 'otros-cardio':
+        return '/assets/img/walking.svg';
+      case 'otros-calentamiento':
+        return '/assets/img/fitness.svg';
+      case 'otros-estiramiento':
+        return '/assets/img/girl-exercise-workout-pose.svg';
+      default:
+        return '/assets/img/gym.svg';
     }
   }
   async save() {

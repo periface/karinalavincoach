@@ -10,7 +10,7 @@
       [formGroup]="formGroup"
       (ngSubmit)="save()"
     >
-      <div fxFlex="100" class="padding">
+      <!-- <div fxFlex="100" class="padding">
         <mat-form-field class="small-form" appearance="fill">
           <mat-label>Categoría</mat-label>
           <mat-select required formControlName="idCategoria">
@@ -22,7 +22,7 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
+      </div> -->
       <div fxFlex="100" class="padding">
         <mat-form-field class="small-form" appearance="fill">
           <mat-label>Nombre</mat-label>
@@ -36,7 +36,34 @@
         </mat-form-field>
       </div>
       <div fxFlex="100" class="padding">
-        <button mat-raised-button type="submit" [disabled]="!this.formGroup.valid">
+        <mat-form-field class="small-form" appearance="fill">
+          <mat-label>Zona muscular</mat-label>
+          <mat-select placeholder="Zona base" formControlName="zonaBase">
+            <mat-option value="superior-hombro"> Superior-Hombro </mat-option>
+            <mat-option value="superior-espalda"> Superior-Espalda </mat-option>
+            <mat-option value="superior-pecho"> Superior-Pecho </mat-option>
+            <mat-option value="superior-brazos"> Superior-Brazos </mat-option>
+            <mat-option value="superior-abdomen"> Superior-Abdomen </mat-option>
+            <mat-option value="inferior-cuadricep">
+              Inferior-Cuadricep
+            </mat-option>
+            <mat-option value="inferior-femoral"> Inferior-Femoral </mat-option>
+            <mat-option value="inferior-pantorrilla">
+              Inferior-Pantorrilla
+            </mat-option>
+            <mat-option value="inferior-gluteo"> Inferior-Gluteo </mat-option>
+            <mat-option value="otros-cardio"> Otros-Cardio </mat-option>
+            <mat-option value="otros-calentamiento"> Otros-Calentamiento </mat-option>
+            <mat-option value="otros-estiramiento"> Otros-Estiramiento </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100" class="padding">
+        <button
+          mat-raised-button
+          type="submit"
+          [disabled]="!this.formGroup.valid"
+        >
           Guardar
         </button>
 

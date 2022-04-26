@@ -73,27 +73,28 @@ export class GenerarEjercicioComponent extends BaseComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     super();
-    let sub = this.afs
-      .collection('categoria-ejercicio')
-      .snapshotChanges()
-      .pipe(
-        map((actions) =>
-          actions.map((a) => {
-            const data = a.payload.doc.data() as any;
-            data['id'] = a.payload.doc.id;
-            return { ...data };
-          })
-        )
-      )
-      .subscribe((data) => {
-        this.categorias = data;
-        sub.unsubscribe();
-      });
+    // let sub = this.afs
+    //   .collection('categoria-ejercicio')
+    //   .snapshotChanges()
+    //   .pipe(
+    //     map((actions) =>
+    //       actions.map((a) => {
+    //         const data = a.payload.doc.data() as any;
+    //         data['id'] = a.payload.doc.id;
+    //         return { ...data };
+    //       })
+    //     )
+    //   )
+    //   .subscribe((data) => {
+    //     this.categorias = data;
+    //     sub.unsubscribe();
+    //   });
 
     this.formGroup = this.formBuilder.group({
       id: [''],
-      idCategoria: ['', Validators.required],
+      idCategoria: [''],
       name: ['', Validators.required],
+      zonaBase: [''],
     });
   }
 

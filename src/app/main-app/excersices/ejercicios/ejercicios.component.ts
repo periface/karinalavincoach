@@ -30,22 +30,22 @@ export class EjerciciosComponent
    */
   constructor(private afs: AngularFirestore, private matDialog: MatDialog) {
     super(); //
-    let sub = this.afs
-      .collection('categoria-ejercicio')
-      .snapshotChanges()
-      .pipe(
-        map((actions) =>
-          actions.map((a) => {
-            const data = a.payload.doc.data() as any;
-            data['id'] = a.payload.doc.id;
-            return { ...data };
-          })
-        )
-      )
-      .subscribe((data) => {
-        this.categorias = data;
-        sub.unsubscribe();
-      });
+    // let sub = this.afs
+    //   .collection('categoria-ejercicio')
+    //   .snapshotChanges()
+    //   .pipe(
+    //     map((actions) =>
+    //       actions.map((a) => {
+    //         const data = a.payload.doc.data() as any;
+    //         data['id'] = a.payload.doc.id;
+    //         return { ...data };
+    //       })
+    //     )
+    //   )
+    //   .subscribe((data) => {
+    //     this.categorias = data;
+    //     sub.unsubscribe();
+    //   });
     let exSb = this.afs
       .collection('ejercicios')
       .snapshotChanges()
@@ -99,6 +99,17 @@ export class EjerciciosComponent
     const filterValue = $event;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  changeZone($event: any) {
+    const filterValue = $event;
+
+    if (filterValue.trim().toLowerCase() === '') {
+      return;
+    }
+    this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
